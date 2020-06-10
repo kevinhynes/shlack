@@ -1,0 +1,14 @@
+body, html {
+  height: 100%;
+}
+
+.fill {
+  min-height: 100%;
+}
+
+.sidebar {
+  width: 200px;
+  max-width: 200px;
+}
+
+/*# sourceMappingURL=style.css.map */
