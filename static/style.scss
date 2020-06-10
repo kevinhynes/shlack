@@ -23,6 +23,10 @@ body, html {
   background: $purple2;
   width: 200px;
   max-width: 200px;
+  position: fixed;
+  overflow-y: scroll;
+  top: 0;
+  bottom: 0;
 }
 
 .topbar {

@@ -12,8 +12,8 @@ body, html {
   max-width: 200px;
   position: fixed;
   overflow-y: scroll;
-  top: 0;
-  bottom: 0;
+  /*top: 0;*/
+  /*bottom: 0;*/
 }
 
 .topbar {
@@ -22,6 +22,11 @@ body, html {
 
 .messages {
   background: #eeeeee;
+  position: relative;
+  margin-left: 200px;
+  overflow-y: scroll;
+  /*top: 0;*/
+  /*bottom: 0;*/
 }
 
 /*# sourceMappingURL=style.css.map */
