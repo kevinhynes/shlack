@@ -1,3 +1,16 @@
+$midnight: #352961;
+
+$purple1: #560764;
+$purple2: #71397c;
+$purple3: #774181;
+$purple4: #91519d;
+$purple5: #c582d5;
+$pink: #e6b2c6;
+
+$yellow: #ffdf5a;
+$pink_white: #f6e5e5;
+$off_white: #eeeeee;
+
 body, html {
   height: 100%;
 }
@@ -7,6 +20,15 @@ body, html {
 }
 
 .sidebar {
+  background: $purple2;
   width: 200px;
   max-width: 200px;
+}
+
+.topbar {
+  background: $purple1;
+}
+
+.messages {
+  background: $off_white;
 }

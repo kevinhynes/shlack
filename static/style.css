@@ -7,8 +7,17 @@ body, html {
 }
 
 .sidebar {
+  background: #71397c;
   width: 200px;
   max-width: 200px;
+}
+
+.topbar {
+  background: #560764;
+}
+
+.messages {
+  background: #eeeeee;
 }
 
 /*# sourceMappingURL=style.css.map */
