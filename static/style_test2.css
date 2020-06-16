@@ -16,9 +16,9 @@ body, html {
   /*width: 200px;*/
   /*max-width: 200px;*/
   /*position: fixed;*/
-  /*overflow-y: scroll;*/
-  /*top: 0;*/
-  /*bottom: 0;*/
+  overflow: auto;
+  top: 0;
+  bottom: 0;
 }
 
 /*.messages {*/
@@ -30,9 +30,10 @@ body, html {
   /*bottom: 0;*/
 /*}*/
 
-/*.message-box {*/
+.message-box {
+  background: #eeeeee;
   /*position: fixed;*/
   /*bottom:0;*/
-/*}*/
+}
 
 /*# sourceMappingURL=style.css.map */
