@@ -20,6 +20,24 @@ body, html {
   min-height: 100%;
 }
 
+.navbar {
+  background: $purple1;
+  border: 1px solid black;
+}
+
+.card {
+  background: $purple4;
+  border: 2px solid dimgray;
+  border-radius: 2.5px;
+  width: 300px;
+}
+
+.card img {
+  border: 1px solid black;
+  border-radius: 2.5px;
+  width: 50px;
+}
+
 .sidebar {
   background: $purple2;
 }
@@ -45,9 +63,7 @@ body, html {
   transition: all 1s ease;
 }
 
-.navbar {
-  background: $purple1;
-}
+
 
 .messages {
   background: $off_white;

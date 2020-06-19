@@ -7,6 +7,24 @@ body, html {
   min-height: 100%;
 }
 
+.navbar {
+  background: #560764;
+  border: 1px solid black;
+}
+
+.card {
+  background: #91519d;
+  border: 2px solid dimgray;
+  border-radius: 2.5px;
+  width: 300px;
+}
+
+.card img {
+  border: 1px solid black;
+  border-radius: 2.5px;
+  width: 50px;
+}
+
 .sidebar {
   background: #71397c;
 }
@@ -23,10 +41,6 @@ body, html {
   border-left: 1px solid #ffdf5a;
   background: #91519d;
   transition: all 1s ease;
-}
-
-.navbar {
-  background: #560764;
 }
 
 .messages {
