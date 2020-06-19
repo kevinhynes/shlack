@@ -1,5 +1,6 @@
 body, html {
   height: 100%;
+  overflow: hidden;
 }
 
 .fill {
@@ -8,20 +9,32 @@ body, html {
 
 .sidebar {
   background: #71397c;
-  width: 200px;
-  max-width: 200px;
-  position: fixed;
-  overflow-y: scroll;
-  top: 0;
-  bottom: 0;
 }
 
-.topbar {
+.sidebar li:hover {
+  border-left: 2px solid #ffdf5a;
+  background: #91519d;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.navbar {
   background: #560764;
 }
 
 .messages {
   background: #eeeeee;
+  height: calc(100% - 60px);
+}
+
+.message-box {
+  background: #eeeeee;
+  border: 1px solid dimgray;
+  border-radius: 2.5px;
+  height: 60px;
 }
 
 /*# sourceMappingURL=style.css.map */

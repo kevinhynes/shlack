@@ -13,6 +13,7 @@ $off_white: #eeeeee;
 
 body, html {
   height: 100%;
+  overflow: hidden;
 }
 
 .fill {
@@ -21,18 +22,34 @@ body, html {
 
 .sidebar {
   background: $purple2;
-  width: 200px;
-  max-width: 200px;
-  position: fixed;
-  overflow-y: scroll;
-  top: 0;
-  bottom: 0;
 }
 
-.topbar {
+//.sidebar li {
+//  border: 1px solid $yellow;
+//}
+
+.sidebar li:hover {
+  border-left: 2px solid $yellow;
+  background: $purple4;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.navbar {
   background: $purple1;
 }
 
 .messages {
   background: $off_white;
+  height: calc(100% - 60px);
+}
+
+.message-box {
+  background: $off_white;
+  border: 1px solid dimgray;
+  border-radius: 2.5px;
+  height: 60px;
 }
