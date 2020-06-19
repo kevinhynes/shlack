@@ -15,14 +15,42 @@
 <div class="container-fluid main d-flex flex-column vh-100 overflow-hidden test">
   <header class="row">
     <div class="col px-0">
-      <nav class="navbar navbar-light">
-        <a class="navbar-brand" href="#">Navbar</a>
+      <nav class="navbar navbar-expand-lg navbar-light shadow">
+        <a class="navbar-brand" href="#">Schlack</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse_links"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="collapse_links">
+          <ul class="navbar-nav flex-grow-1">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+          {#      Log In / Sign Up / Log Out#}
+          {% if not logged_in %}
+            <li class="nav-item ml-auto pl-0">
+              <a class="nav-link" href="">Login</a>
+            </li>
+            <li class="nav-item pl-0">
+              <a class="nav-link" href="">Sign Up</a>
+            </li>
+          {% else %}
+            <li class="nav-item ml-auto pl-0">
+              <a class="nav-link" href="">Logout</a>
+            </li>
+          {% endif %}
+          </ul>
+        </div>
       </nav>
+
     </div>
+
   </header>
   <main class="row overflow-hidden">
-    <section class="col-lg-2 d-none d-lg-block sidebar mh-100 overflow-auto">
-      <h6>Sidebar</h6>
+    <section class="col-lg-2 d-none d-lg-block sidebar mh-100 overflow-auto py-2 px-0">
+      <h6>Channels</h6>
       <ul class="nav flex-column rounded">
         <li class="nav-item">
           <a class="nav-link text-white" href="#">Link</a>

@@ -24,17 +24,24 @@ body, html {
   background: $purple2;
 }
 
-//.sidebar li {
-//  border: 1px solid $yellow;
-//}
+
+.sidebar ul {
+  padding: 0px;
+}
+
+
+
+.sidebar ul li,h6 {
+  padding-left: 15px;
+}
 
 .sidebar li:hover {
-  border-left: 2px solid $yellow;
+  border-left: 1px solid $yellow;
   background: $purple4;
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  -ms-transition: all 1s ease;
+  //-webkit-transition: all 1s ease;
+  //-moz-transition: all 1s ease;
+  //-o-transition: all 1s ease;
+  //-ms-transition: all 1s ease;
   transition: all 1s ease;
 }
 
