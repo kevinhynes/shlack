@@ -32,8 +32,9 @@ body, html {
 
 .message-box {
   background: #eeeeee;
-  /*position: fixed;*/
-  /*bottom:0;*/
+  position: fixed;
+  bottom:0;
+  flex: 0 1 auto;
 }
 
-/*# sourceMappingURL=style.css.map */
+# sourceMappingURL=style.css.map

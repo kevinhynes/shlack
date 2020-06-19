@@ -1,0 +1,36 @@
+body, html {
+  height: 100%;
+  overflow: hidden;
+}
+
+/*.main {*/
+  /*display: flex;*/
+  /*flex-direction: column;*/
+  /*flex-grow: 1;*/
+  /*overflow: hidden;*/
+  /*height: 100vh;*/
+/*}*/
+
+/*.fill {*/
+  /*min-height: 100%;*/
+/*}*/
+
+.sidebar {
+  background: #71397c;
+  /*overflow-y: scroll;*/
+}
+
+.messages {
+  background: #eeeeee;
+  height: calc(100% - 60px);
+  /*overflow-y: scroll;*/
+}
+
+.message-box {
+  height: 60px;
+}
+
+/*.test {*/
+  /*background: tomato;*/
+  /*border: 5px dashed cornflowerblue;*/
+/*}*/
