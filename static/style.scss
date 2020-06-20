@@ -24,18 +24,28 @@ body, html {
   background: $purple1;
   border: 1px solid black;
 }
+//
+//.navbar ul{
+//  list-style: inside;
+//}
 
 .usercard {
   background: $purple4;
   border: 2px solid dimgray;
   border-radius: 2.5px;
-  width: 300px;
+  width: 200px;
+}
+
+.usercard .img-col {
+  flex-: 0 0 50px;
+  width: 50px;
 }
 
 .usercard img {
   border: 1px solid black;
   border-radius: 2.5px;
   width: 50px;
+  height: 50px;
 }
 
 .sidebar {

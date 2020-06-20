@@ -10,4 +10,4 @@ socketio = SocketIO(app)
 
 @app.route("/")
 def index():
-    return render_template("layout_test5.html", logged_in=False)
+    return render_template("layout.html", logged_in=False)

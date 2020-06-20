@@ -1,53 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>{% block title %}{% endblock %}</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css' )}}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-  </head>
-  <body>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
 
-{#      Body#}
-  <div class="container-fluid sticky-top topbar shadow">
-    <div class="row">
-      <div class="col">?</div>
+<div class="container-fluid main d-flex flex-column vh-100 overflow-hidden test">
+  <header class="row">
+    <div class="col px-0">
+      <nav class="navbar navbar-expand-lg navbar-light shadow">
+        <a class="navbar-brand" href="#">Schlack</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse_links"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="collapse_links">
+          <ul class="navbar-nav flex-grow-1">
+            <li class="nav-item ">
+              <div class="usercard d-flex flex-row no-gutters">
+                  <img src="./static/images/monster-34.svg"/>
+                <div class="col">
+                  <p class="text-center text-white my-0">Username</p>
+                  <hr class="my-0">
+                  <p class="text-center text-white my-0"><small>Subtext</small></p>
+                  <hr class="my-0">
+                  <p class="text-center text-white my-0"><small>Subtext</small></p>
+                </div>
+              </div>
+            </li>
+          {#      Log In / Sign Up / Log Out#}
+          {% if not logged_in %}
+            <li class="nav-item ml-auto pl-0">
+              <a class="nav-link" href="">Login</a>
+            </li>
+            <li class="nav-item pl-0">
+              <a class="nav-link align-middle" href="">Sign Up</a>
+            </li>
+          {% else %}
+            <li class="nav-item ml-auto pl-0">
+              <a class="nav-link" href="">Logout</a>
+            </li>
+          {% endif %}
+          </ul>
+        </div>
+      </nav>
+
     </div>
-  </div>
 
-  <div class="container-fluid d-flex h-100">
-    <div class="row flex-grow-1">
+  </header>
+  <main class="row overflow-hidden">
+    <section class="col-lg-2 d-none d-lg-block sidebar mh-100 overflow-auto py-2 px-0">
+      <h6>Channels</h6>
+      <ul class="nav flex-column rounded">
+        <li class="nav-item">
+          Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a>
+          from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Link</a>
+        </li>
+      </ul>
+    </section>
 
-      <div class="col sidebar">
-        asdf
+    <section class="col-lg-10 messages overflow-auto mh-100">
+      <div class="row">
+        <div class="col-12">
+          <p>Finite but unbounded how far away Vangelis the sky calls to us Orion's sword at the edge of forever. Courage of our questions concept of the number one the ash of stellar alchemy something incredible is waiting to be known intelligent beings rich in mystery? The only home we've ever known paroxysm of global death astonishment astonishment courage of our questions great turbulent clouds. Concept of the number one vastness is bearable only through love hundreds of thousands hearts of the stars hearts of the stars invent the universe and billions upon billions upon billions upon billions upon billions upon billions upon billions.</p>
+          <p>Shores of the cosmic ocean Flatland radio telescope descended from astronomers decipherment muse about. Inconspicuous motes of rock and gas tesseract Jean-François Champollion courage of our questions are creatures of the cosmos the only home we've ever known. Hundreds of thousands the carbon in our apple pies dream of the mind's eye take root and flourish encyclopaedia galactica network of wormholes? Rich in heavy atoms two ghostly white figures in coveralls and helmets are softly dancing hundreds of thousands vanquish the impossible network of wormholes a very small stage in a vast cosmic arena and billions upon billions upon billions upon billions upon billions upon billions upon billions.</p>
+          <p>Invent the universe explorations take root and flourish great turbulent clouds finite but unbounded laws of physics. Citizens of distant epochs vastness is bearable only through love a still more glorious dawn awaits Apollonius of Perga Jean-François Champollion hearts of the stars. Tendrils of gossamer clouds the sky calls to us the only home we've ever known the ash of stellar alchemy not a sunrise but a galaxyrise a very small stage in a vast cosmic arena and billions upon billions upon billions upon billions upon billions upon billions upon billions.</p>
+          <p>Star stuff harvesting star light dispassionate extraterrestrial observer kindling the energy hidden in matter rich in heavy atoms astonishment Euclid. Invent the universe the only home we've ever known shores of the cosmic ocean take root and flourish Orion's sword Apollonius of Perga? A still more glorious dawn awaits dream of the mind's eye realm of the galaxies a very small stage in a vast cosmic arena a very small stage in a vast cosmic arena Orion's sword and billions upon billions upon billions upon billions upon billions upon billions upon billions.</p>
+          <p>Corpus callosum inconspicuous motes of rock and gas rich in mystery bits of moving fluff Cambrian explosion laws of physics. Astonishment hydrogen atoms network of wormholes not a sunrise but a galaxyrise hydrogen atoms vastness is bearable only through love? Made in the interiors of collapsing stars two ghostly white figures in coveralls and helmets are softly dancing finite but unbounded extraordinary claims require extraordinary evidence permanence of the stars finite but unbounded and billions upon billions upon billions upon billions upon billions upon billions upon billions.</p>
+          <p>Finite but unbounded how far away Vangelis the sky calls to us Orion's sword at the edge of forever. Courage of our questions concept of the number one the ash of stellar alchemy something incredible is waiting to be known intelligent beings rich in mystery? The only home we've ever known paroxysm of global death astonishment astonishment courage of our questions great turbulent clouds. Concept of the number one vastness is bearable only through love hundreds of thousands hearts of the stars hearts of the stars invent the universe and billions upon billions upon billions upon billions upon billions upon billions upon billions.</p>
+          <p>Shores of the cosmic ocean Flatland radio telescope descended from astronomers decipherment muse about. Inconspicuous motes of rock and gas tesseract Jean-François Champollion courage of our questions are creatures of the cosmos the only home we've ever known. Hundreds of thousands the carbon in our apple pies dream of the mind's eye take root and flourish encyclopaedia galactica network of wormholes? Rich in heavy atoms two ghostly white figures in coveralls and helmets are softly dancing hundreds of thousands vanquish the impossible network of wormholes a very small stage in a vast cosmic arena and billions upon billions upon billions upon billions upon billions upon billions upon billions.</p>
+          <p>Invent the universe explorations take root and flourish great turbulent clouds finite but unbounded laws of physics. Citizens of distant epochs vastness is bearable only through love a still more glorious dawn awaits Apollonius of Perga Jean-François Champollion hearts of the stars. Tendrils of gossamer clouds the sky calls to us the only home we've ever known the ash of stellar alchemy not a sunrise but a galaxyrise a very small stage in a vast cosmic arena and billions upon billions upon billions upon billions upon billions upon billions upon billions.</p>
+          <p>Star stuff harvesting star light dispassionate extraterrestrial observer kindling the energy hidden in matter rich in heavy atoms astonishment Euclid. Invent the universe the only home we've ever known shores of the cosmic ocean take root and flourish Orion's sword Apollonius of Perga? A still more glorious dawn awaits dream of the mind's eye realm of the galaxies a very small stage in a vast cosmic arena a very small stage in a vast cosmic arena Orion's sword and billions upon billions upon billions upon billions upon billions upon billions upon billions.</p>
+          <p>Corpus callosum inconspicuous motes of rock and gas rich in mystery bits of moving fluff Cambrian explosion laws of physics. Astonishment hydrogen atoms network of wormholes not a sunrise but a galaxyrise hydrogen atoms vastness is bearable only through love? Made in the interiors of collapsing stars two ghostly white figures in coveralls and helmets are softly dancing finite but unbounded extraordinary claims require extraordinary evidence permanence of the stars finite but unbounded and billions upon billions upon billions upon billions upon billions upon billions upon billions.</p>
+        </div>
       </div>
 
-      <div class="col messages">
-        <div class="container-fluid">
-          <div class="row">
-            <ul>
-              <li>1</li>
-              <li>1</li>
-              <li>1</li>
-              <li>1</li>
-            </ul>
+      <div class="row">
+        <div class="col-12 col-lg-10 offset-lg-2 message-box fixed-bottom py-2">
+          <div class="input-group ">
+            <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button" id="button-addon1">Send</button>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="row no-gutters">
-         <div class="input-group fixed-bottom px-3 pb-3">
-          <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-          <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button" id="button-addon1">Button</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  </body>
+    </section>
+
+  </main>
+
+</div>
+
+</body>
 </html>
