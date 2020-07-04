@@ -19,11 +19,6 @@ body, html {
   width: 200px;
 }
 
-.usercard .img-col {
-  flex-: 0 0 50px;
-  width: 50px;
-}
-
 .usercard img {
   border: 1px solid black;
   border-radius: 2.5px;
