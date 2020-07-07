@@ -14,5 +14,5 @@ def index():
 
 @app.route("/is_user_logged_in")
 def is_user_logged_in():
-    res = {'logged_in': False}
+    res = {'logged_in': True}
     return jsonify(res)

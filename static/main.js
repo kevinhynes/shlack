@@ -1,10 +1,9 @@
 $(document).ready(function() {
-    // $('#exampleModal').modal('show')
     ensureLogIn()
     console.log('DOM fully loaded and parsed')
 })
 
-function isUserLoggedIn() {
+async function isUserLoggedIn() {
     const xhr = new XMLHttpRequest()
     xhr.responseType = 'json'
     xhr.onreadystatechange = () => {
@@ -15,18 +14,27 @@ function isUserLoggedIn() {
     }
     xhr.open('GET', '/is_user_logged_in')
     xhr.send()
+    // return true
 }
 
-async function ensureLogIn() {
-    res = await isUserLoggedIn()
-    console.log(res)
-    if (!res) {
-        $('#exampleModal').modal('show')
-        console.log('opening modal')
-    } else {
-        console.log('not opening modal')
+function ensureLogIn() {
+    const xhr = new XMLHttpRequest()
+    xhr.responseType = 'json'
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            console.log(xhr.response)
+            if (!xhr.response['logged_in']) {
+                $('#exampleModal').modal('show')
+                console.log('opening modal')
+            } else {
+                console.log('not opening modal')
+            }
+        }
     }
+    xhr.open('GET', '/is_user_logged_in')
+    xhr.send()
 }
+
 
 // document.addEventListener('DOMContentLoaded', (event) => {
 //     document.getElementById('exampleModal').modal('show');
