@@ -3,19 +3,6 @@ $(document).ready(function() {
     console.log('DOM fully loaded and parsed')
 })
 
-async function isUserLoggedIn() {
-    const xhr = new XMLHttpRequest()
-    xhr.responseType = 'json'
-    xhr.onreadystatechange = () => {
-    if (xhr.readyState === XMLHttpRequest.DONE) {
-        console.log(xhr.response['logged_in'])
-        return xhr.response['logged_in']
-        }
-    }
-    xhr.open('GET', '/is_user_logged_in')
-    xhr.send()
-    // return true
-}
 
 function ensureLogIn() {
     const xhr = new XMLHttpRequest()
@@ -31,9 +18,14 @@ function ensureLogIn() {
             }
         }
     }
-    xhr.open('GET', '/is_user_logged_in')
+    xhr.open('GET', '/ensureLogIn')
     xhr.send()
 }
+
+
+$('#myCollapsible').on('hidden.bs.collapse', function () {
+  $()
+})
 
 
 // document.addEventListener('DOMContentLoaded', (event) => {

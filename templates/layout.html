@@ -19,20 +19,18 @@
       <nav class="navbar navbar-expand-lg navbar-light shadow">
         <a class="navbar-brand" href="#">Schlack</a>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse_links"
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse_sidebar"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="collapse_links">
+        <div class="navbar-collapse" id="collapse_links">
           <ul class="navbar-nav flex-grow-1">
-            <li class="nav-item ">
+            <li class="nav-item mr-auto">
               <div class="usercard d-flex flex-row no-gutters">
                   <img src="./static/images/monster-34.svg"/>
                 <div class="col">
                   <p class="text-center text-white my-0">Username</p>
-                  <hr class="my-0">
-                  <p class="text-center text-white my-0"><small>Subtext</small></p>
                   <hr class="my-0">
                   <p class="text-center text-white my-0"><small>Subtext</small></p>
                 </div>
@@ -40,7 +38,7 @@
             </li>
           {#      Log In / Sign Up / Log Out#}
           {% if not logged_in %}
-            <li class="nav-item ml-auto">
+            <li class="nav-item">
               <a class="nav-link" href="">Login</a>
             </li>
             <li class="nav-item">
@@ -65,7 +63,7 @@
 
   </header>
   <main class="row overflow-hidden">
-    <section class="col-lg-2 d-none d-lg-block sidebar mh-100 overflow-auto py-2 px-0">
+    <section id="collapse_sidebar" class="col-lg-2 d-lg-block sidebar mh-100 overflow-auto py-2 px-0 collapse">
       <h6>Channels</h6>
       <ul class="nav flex-column rounded">
         <li class="nav-item">
@@ -195,13 +193,62 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Welcome to Shlack</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ...
+
+        <!-- Nav -->
+        <ul class="nav nav-tabs nav-fill">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Sign In</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Register</a>
+          </li>
+        </ul>
+        <!-- End Nav -->
+
+
+        <div class="login-container border border-light rounded-lg bg-light ml-auto mr-auto">
+          <h3 id="login-header" class="text-center"></h3>
+
+          <form class="form" action="{{ url_for('login') }}", method="POST">
+
+            <div class="form-group">
+              <label class="control-label col-4" for="username">Username:</label>
+              <div class="col-12">
+                <input id="username" name="username" class="form-control" type="text" placeholder="Enter username">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-4" for="pwd">Password:</label>
+              <div class="col-12">
+                <input id="pwd" name="pwd" class="form-control" type="password" placeholder="Enter password">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-4">
+                <button type="submit" class="btn btn-default btn-outline-secondary">Submit</button>
+              </div>
+            </div>
+
+          </form>
+
+          <div class="row">
+            <div class="col-6 text-center">
+              <a href="#">Forgot Username?</a>
+            </div>
+            <div class="col-6 text-center">
+              <a href="#">Forgot Password?</a>
+            </div>
+          </div>
+
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
