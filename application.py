@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 from flask_socketio import SocketIO, emit
 from config import Config
 
@@ -11,3 +11,8 @@ socketio = SocketIO(app)
 @app.route("/")
 def index():
     return render_template("layout.html", logged_in=False)
+
+@app.route("/is_user_logged_in")
+def is_user_logged_in():
+    res = {'logged_in': False}
+    return jsonify(res)
