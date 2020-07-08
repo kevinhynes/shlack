@@ -51,19 +51,27 @@
               </button>
             </li>
           {% else %}
-            <li class="nav-item ml-auto pl-0">
+            <li class="nav-item pl-0">
               <a class="nav-link" href="">Logout</a>
             </li>
           {% endif %}
           </ul>
         </div>
       </nav>
-
     </div>
-
   </header>
+  <div class="row">
+    <div class="col-12 test d-md-block d-lg-none">
+      test
+      <button type="button" data-toggle="collapse" data-target="#collapse_sidebar"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>
   <main class="row overflow-hidden">
-    <section id="collapse_sidebar" class="col-lg-2 d-none d-lg-block sidebar mh-100 overflow-auto py-2 px-0">
+{#    remove d-none and it's actually semi-working, but why does it disappear then?    #}
+    <section id="collapse_sidebar" class="col-lg-2 d-lg-block sidebar mh-100 overflow-auto py-2 px-0 collapse">
       <h6>Channels</h6>
       <ul class="nav flex-column rounded">
         <li class="nav-item">
@@ -151,7 +159,7 @@
       </ul>
     </section>
 
-    <section class="col-lg-10 messages overflow-auto mh-100">
+    <section class="col-12 col-lg-10 messages overflow-auto mh-100">
       <div class="row">
         <div class="col-12">
           <p>Finite but unbounded how far away Vangelis the sky calls to us Orion's sword at the edge of forever. Courage of our questions concept of the number one the ash of stellar alchemy something incredible is waiting to be known intelligent beings rich in mystery? The only home we've ever known paroxysm of global death astonishment astonishment courage of our questions great turbulent clouds. Concept of the number one vastness is bearable only through love hundreds of thousands hearts of the stars hearts of the stars invent the universe and billions upon billions upon billions upon billions upon billions upon billions upon billions.</p>

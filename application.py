@@ -10,10 +10,7 @@ socketio = SocketIO(app)
 
 @app.route("/")
 def index():
-    if 'logged_in' in session and session['logged_in']:
-        return render_template("layout.html", logged_in=True)
-    else:
-        return render_template("layout.html", logged_in=False)
+    return render_template("layout.html", logged_in=session.get('logged_in', False))
 
 @app.route("/ensureLogIn")
 def is_user_logged_in():
@@ -29,3 +26,8 @@ def is_user_logged_in():
 def login():
     session['logged_in'] = True
     return redirect(url_for("index"))
+
+
+@app.route("/example")
+def example():
+    return render_template("example.html")
