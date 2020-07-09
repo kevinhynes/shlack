@@ -28,19 +28,7 @@
   margin: 0px;
   line-height: 35px;
   cursor: pointer;
-  /*
-    .collapsed{
-       .arrow:before{
-                 font-family: FontAwesome;
-                 content: "\f053";
-                 display: inline-block;
-                 padding-left:10px;
-                 padding-right: 10px;
-                 vertical-align: middle;
-                 float:right;
-            }
-     }
-*/
+
 }
 .nav-side-menu ul :not(collapsed) .arrow:before,
 .nav-side-menu li :not(collapsed) .arrow:before {
@@ -110,6 +98,19 @@
   transition: all 1s ease;
 }
 
+#main {
+  max-height: 100vh;
+  display: block;
+}
+
+#message-box {
+  position: fixed;
+  bottom: 0;
+  /*right: 0;*/
+  background: #71397c;
+}
+
+/*When screen width is below 767 pixels*/
 @media (max-width: 767px) {
   .nav-side-menu {
     position: relative;
@@ -135,18 +136,28 @@
     padding-left: 20px;
     line-height: 50px !important;
   }
+  #message-box {
+    width: 100%;
+  }
 }
+
+/*When screen with is above 767 pixels...*/
 @media (min-width: 767px) {
   .nav-side-menu .menu-list .menu-content {
     display: block;
   }
   #main {
-  	width:calc(100% - 300px);
+  	width: calc(100% - 300px);
+    height: calc(100% - 60px);
   	float: right;
+  }
+  #message-box {
+    width: calc(100% - 300px);
   }
 }
 
 body {
   margin: 0px;
   padding: 0px;
+  max-height: 100%;
 }
