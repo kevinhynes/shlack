@@ -14,6 +14,53 @@
 </head>
 <body>
 
+
+
+<nav class="navbar navbar-expand-lg navbar-light shadow">
+  <a class="navbar-brand" href="#">Schlack</a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse_links"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="collapse_links">
+    <ul class="navbar-nav flex-grow-1">
+      <li class="nav-item mr-auto">
+        <div class="usercard d-flex flex-row no-gutters">
+            <img src="./static/images/monster-34.svg"/>
+          <div class="col">
+            <p class="text-center text-white my-0">Username</p>
+            <hr class="my-0">
+            <p class="text-center text-white my-0"><small>Subtext</small></p>
+          </div>
+        </div>
+      </li>
+{#          Log In / Sign Up / Log Out#}
+    {% if not logged_in %}
+      <li class="nav-item">
+        <a class="nav-link" href="">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link nav-fill" href="">Sign Up</a>
+      </li>
+      <li class="nav-item">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          Launch demo modal
+        </button>
+      </li>
+    {% else %}
+      <li class="nav-item pl-0">
+        <a class="nav-link" href="">Logout</a>
+      </li>
+    {% endif %}
+    </ul>
+  </div>
+</nav>
+
+
+
 <div class="nav-side-menu">
   <div class="brand">Brand Logo</div>
   <span class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></span>
