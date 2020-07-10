@@ -1,3 +1,11 @@
+
+body,html {
+  margin: 0px;
+  padding: 0px;
+  max-height: 100%;
+  height: 100%;
+}
+
 .nav-side-menu {
   overflow: auto;
   font-family: verdana;
@@ -21,6 +29,9 @@
 .nav-side-menu .toggle-btn {
   display: none;
 }
+
+
+
 .nav-side-menu ul,
 .nav-side-menu li {
   list-style: none;
@@ -98,14 +109,13 @@
   transition: all 1s ease;
 }
 
+
 #main {
   /*max-height: 100%;*/
   height: 100%;
   overflow: auto;
   height: calc(100% - 54px);
-
 }
-
 #messages {
   /*height: calc(100% - 60px);*/
   /*overflow: auto;*/
@@ -117,12 +127,6 @@
   background: #eeeeee;
 }
 
-body,html {
-  margin: 0px;
-  padding: 0px;
-  max-height: 100%;
-  height: 100%;
-}
 
 /*When screen width is below 767 pixels*/
 @media (max-width: 767px) {
@@ -130,7 +134,10 @@ body,html {
     position: relative;
     width: 100%;
     margin-bottom: 10px;
+    display: inline-block;
+    height: auto;
   }
+
   .nav-side-menu .toggle-btn {
     display: block;
     cursor: pointer;
@@ -155,10 +162,11 @@ body,html {
   }
 }
 
-/*When screen with is above 767 pixels...*/
+/*When screen width is above 767 pixels...*/
 @media (min-width: 767px) {
   .nav-side-menu .menu-list .menu-content {
     display: block;
+
   }
   #main {
   	width: calc(100% - 300px);
