@@ -32,15 +32,25 @@ function ensureLogIn() {
 
 function resizeMessages(mql) {
     console.log('media query received')
+    console.log(`mql.matches ${mql.matches}`)
 
     const navbar = document.getElementById('navbar')
+    const sidebar = document.getElementById('sidebar')
     const main = document.getElementById('main')
     const messageBox = document.getElementById('message-box')
-    const main_height = messageBox.offsetTop - navbar.offsetHeight
-    const main_top_pos = navbar.offsetTop + navbar.clientHeight
-    console.log(main_height + 'px')
-    main.style.height = main_height + 'px'
-    // main.style.top = main_top_pos + 'px'
+
+    if (mql.matches) {
+        // Width is smaller than 767px
+        const main_height = messageBox.offsetTop - sidebar.offsetTop - sidebar.offsetHeight
+        console.log(main_height + 'px')
+        main.style.height = main_height + 'px'
+    } else {
+        // Width is greater than 767px
+        const main_height = messageBox.offsetTop - navbar.offsetHeight
+        const main_top_pos = navbar.offsetTop + navbar.clientHeight
+        console.log(main_height + 'px')
+        main.style.height = main_height + 'px'
+    }
 
     // main.style.height = '400px';
     console.log(`navbar.offsetTop: ${navbar.offsetTop}, navbar.clientHeight: ${navbar.clientHeight}`)
