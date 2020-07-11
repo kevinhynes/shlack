@@ -42,14 +42,16 @@ function resizeMessages(mql) {
     if (mql.matches) {
         // Width is smaller than 767px
         const main_height = messageBox.offsetTop - sidebar.offsetTop - sidebar.offsetHeight
-        console.log(main_height + 'px')
         main.style.height = main_height + 'px'
+        sidebar.style.height = 'auto'
+
     } else {
         // Width is greater than 767px
         const main_height = messageBox.offsetTop - navbar.offsetHeight
-        const main_top_pos = navbar.offsetTop + navbar.clientHeight
-        console.log(main_height + 'px')
+        const sidebar_height = window.innerHeight - navbar.offsetHeight
+        console.log(sidebar_height + 'px')
         main.style.height = main_height + 'px'
+        sidebar.style.height = sidebar_height + 'px'
     }
 
     // main.style.height = '400px';

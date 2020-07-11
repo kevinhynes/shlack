@@ -8,9 +8,19 @@ body,html {
 
 
 /*Navbar*/
-.navbar {
+/*.navbar {*/
+  /*background: #560764;*/
+  /*border: 1px solid black;*/
+/*}*/
+
+#navbar {
   background: #560764;
   border: 1px solid black;
+}
+
+.navbar-list {
+  display: flex;
+  flex-direction: row;
 }
 
 .usercard {
@@ -35,7 +45,6 @@ body,html {
   font-weight: 200;
   background-color: #2e353d;
   position: fixed;
-  /*top: 0px;*/
   left: 0px;
   width: 300px;
   height: 100%;
@@ -153,7 +162,6 @@ body,html {
   .nav-side-menu {
     position: relative;
     width: 100%;
-    /*margin-bottom: 10px;*/
     height: auto;
   }
 
@@ -178,9 +186,6 @@ body,html {
   }
   #message-box {
     width: 100%;
-  }
-  #main {
-    /*height: auto;*/
   }
 }
 
