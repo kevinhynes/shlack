@@ -11,53 +11,65 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src="{{url_for('static', filename='main.js')}}"></script>
 </head>
 <body>
 
-
-
-<nav class="navbar navbar-expand-lg navbar-light shadow">
-  <a class="navbar-brand" href="#">Schlack</a>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse_links"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="collapse_links">
-    <ul class="navbar-nav flex-grow-1">
-      <li class="nav-item mr-auto">
-        <div class="usercard d-flex flex-row no-gutters">
-            <img src="./static/images/monster-34.svg"/>
-          <div class="col">
-            <p class="text-center text-white my-0">Username</p>
-            <hr class="my-0">
-            <p class="text-center text-white my-0"><small>Subtext</small></p>
-          </div>
-        </div>
-      </li>
-{#          Log In / Sign Up / Log Out#}
-    {% if not logged_in %}
-      <li class="nav-item">
-        <a class="nav-link" href="">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link nav-fill" href="">Sign Up</a>
-      </li>
-      <li class="nav-item">
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-          Launch demo modal
-        </button>
-      </li>
-    {% else %}
-      <li class="nav-item pl-0">
-        <a class="nav-link" href="">Logout</a>
-      </li>
-    {% endif %}
-    </ul>
+<div id='navbar' class="container-fluid navbar">
+  <div class="row">
+    <div class="col-12">
+      <ul class="navbar-nav flex-grow-1">
+        <li class="nav-item">
+          <a class="nav-link nav-fill" href="">Sign Up</a>
+        </li>
+      </ul>
+    </div>
   </div>
-</nav>
+</div>
+
+
+{#<nav class="navbar navbar-expand-lg navbar-light shadow">#}
+{#  <a class="navbar-brand" href="#">Schlack</a>#}
+{##}
+{#  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse_links"#}
+{#          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">#}
+{#    <span class="navbar-toggler-icon"></span>#}
+{#  </button>#}
+{##}
+{#  <div class="collapse navbar-collapse" id="collapse_links">#}
+{#    <ul class="navbar-nav flex-grow-1">#}
+{#      <li class="nav-item mr-auto">#}
+{#        <div class="usercard d-flex flex-row no-gutters">#}
+{#            <img src="./static/images/monster-34.svg"/>#}
+{#          <div class="col">#}
+{#            <p class="text-center text-white my-0">Username</p>#}
+{#            <hr class="my-0">#}
+{#            <p class="text-center text-white my-0"><small>Subtext</small></p>#}
+{#          </div>#}
+{#        </div>#}
+{#      </li>#}
+{#          Log In / Sign Up / Log Out#}
+{#    {% if not logged_in %}#}
+{#      <li class="nav-item">#}
+{#        <a class="nav-link" href="">Login</a>#}
+{#      </li>#}
+{#      <li class="nav-item">#}
+{#        <a class="nav-link nav-fill" href="">Sign Up</a>#}
+{#      </li>#}
+{#      <li class="nav-item">#}
+{#        <!-- Button trigger modal -->#}
+{#        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">#}
+{#          Launch demo modal#}
+{#        </button>#}
+{#      </li>#}
+{#    {% else %}#}
+{#      <li class="nav-item pl-0">#}
+{#        <a class="nav-link" href="">Logout</a>#}
+{#      </li>#}
+{#    {% endif %}#}
+{#    </ul>#}
+{#  </div>#}
+{#</nav>#}
 
 
 
@@ -178,65 +190,65 @@
         </a>
       </li>
 
-{#      <li data-toggle="collapse" data-target="#service" class="collapsed">#}
-{#        <a href="#"><i class="fa fa-globe fa-lg"></i> Services <span class="arrow"></span></a>#}
-{#      </li>#}
-{#      <ul class="sub-menu collapse" id="service">#}
-{#        <li>New Service 1</li>#}
-{#        <li>New Service 2</li>#}
-{#        <li>New Service 3</li>#}
-{#      </ul>#}
-{##}
-{#      <li data-toggle="collapse" data-target="#new" class="collapsed">#}
-{#        <a href="#"><i class="fa fa-car fa-lg"></i> New <span class="arrow"></span></a>#}
-{#      </li>#}
-{#      <ul class="sub-menu collapse" id="new">#}
-{#        <li>New New 1</li>#}
-{#        <li>New New 2</li>#}
-{#        <li>New New 3</li>#}
-{#      </ul>#}
-{##}
-{#      <li>#}
-{#        <a href="#">#}
-{#          <i class="fa fa-user fa-lg"></i> Profile#}
-{#        </a>#}
-{#      </li>#}
-{##}
-{#      <li>#}
-{#        <a href="#">#}
-{#          <i class="fa fa-users fa-lg"></i> Users#}
-{#        </a>#}
-{#      </li>#}
-{##}
-{#      <li data-toggle="collapse" data-target="#service" class="collapsed">#}
-{#        <a href="#"><i class="fa fa-globe fa-lg"></i> Services <span class="arrow"></span></a>#}
-{#      </li>#}
-{#      <ul class="sub-menu collapse" id="service">#}
-{#        <li>New Service 1</li>#}
-{#        <li>New Service 2</li>#}
-{#        <li>New Service 3</li>#}
-{#      </ul>#}
-{##}
-{#      <li data-toggle="collapse" data-target="#new" class="collapsed">#}
-{#        <a href="#"><i class="fa fa-car fa-lg"></i> New <span class="arrow"></span></a>#}
-{#      </li>#}
-{#      <ul class="sub-menu collapse" id="new">#}
-{#        <li>New New 1</li>#}
-{#        <li>New New 2</li>#}
-{#        <li>New New 3</li>#}
-{#      </ul>#}
-{##}
-{#      <li>#}
-{#        <a href="#">#}
-{#          <i class="fa fa-user fa-lg"></i> Profile#}
-{#        </a>#}
-{#      </li>#}
-{##}
-{#      <li>#}
-{#        <a href="#">#}
-{#          <i class="fa fa-users fa-lg"></i> Users#}
-{#        </a>#}
-{#      </li>#}
+      <li data-toggle="collapse" data-target="#service" class="collapsed">
+        <a href="#"><i class="fa fa-globe fa-lg"></i> Services <span class="arrow"></span></a>
+      </li>
+      <ul class="sub-menu collapse" id="service">
+        <li>New Service 1</li>
+        <li>New Service 2</li>
+        <li>New Service 3</li>
+      </ul>
+
+      <li data-toggle="collapse" data-target="#new" class="collapsed">
+        <a href="#"><i class="fa fa-car fa-lg"></i> New <span class="arrow"></span></a>
+      </li>
+      <ul class="sub-menu collapse" id="new">
+        <li>New New 1</li>
+        <li>New New 2</li>
+        <li>New New 3</li>
+      </ul>
+
+      <li>
+        <a href="#">
+          <i class="fa fa-user fa-lg"></i> Profile
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          <i class="fa fa-users fa-lg"></i> Users
+        </a>
+      </li>
+
+      <li data-toggle="collapse" data-target="#service" class="collapsed">
+        <a href="#"><i class="fa fa-globe fa-lg"></i> Services <span class="arrow"></span></a>
+      </li>
+      <ul class="sub-menu collapse" id="service">
+        <li>New Service 1</li>
+        <li>New Service 2</li>
+        <li>New Service 3</li>
+      </ul>
+
+      <li data-toggle="collapse" data-target="#new" class="collapsed">
+        <a href="#"><i class="fa fa-car fa-lg"></i> New <span class="arrow"></span></a>
+      </li>
+      <ul class="sub-menu collapse" id="new">
+        <li>New New 1</li>
+        <li>New New 2</li>
+        <li>New New 3</li>
+      </ul>
+
+      <li>
+        <a href="#">
+          <i class="fa fa-user fa-lg"></i> Profile
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          <i class="fa fa-users fa-lg"></i> Users
+        </a>
+      </li>
 
 
     </ul>
