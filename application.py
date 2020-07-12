@@ -10,7 +10,9 @@ socketio = SocketIO(app)
 
 @app.route("/")
 def index():
-    return render_template("layout.html", logged_in=session.get('logged_in', False))
+    logged_in = session.get('logged_in', False)
+    return render_template("layout.html", logged_in=logged_in)
+
 
 @app.route("/ensureLogIn")
 def is_user_logged_in():
@@ -21,6 +23,7 @@ def is_user_logged_in():
         response = {'logged_in': False}
     print(response, flush=True)
     return jsonify(response)
+
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
