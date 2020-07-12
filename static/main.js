@@ -1,10 +1,15 @@
 $(document).ready(function() {
     // ensureLogIn()
 
+
     // Resizing Messages
     const mql = window.matchMedia('(max-width: 767px)')
     resizeMessages(mql)
     mql.addEventListener('change', resizeMessages)
+
+
+    // $('#sidebar').on('hide.bs.collapse', resizeMessages)
+
 })
 
 

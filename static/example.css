@@ -8,12 +8,8 @@ body, html {
 }
 
 /*Navbar*/
-/*.navbar {*/
-/*background: #560764;*/
-/*border: 1px solid black;*/
-/*}*/
 #navbar {
-  background: #560764;
+  background: #51075e;
   border: 1px solid black;
 }
 
@@ -26,15 +22,21 @@ body, html {
   padding: 0;
 }
 
+.navbar-list .navbar-brand,
+.navbar-list .nav-link {
+  color: #eeeeee;
+}
+
 .usercard {
-  background: #91519d;
-  border: 2px solid dimgray;
+  background: #a67cae;
+  border: 1px solid #403e41;
+  padding: 2px;
   border-radius: 2.5px;
   width: 200px;
 }
 
 .usercard img {
-  border: 1px solid black;
+  padding: 1px;
   border-radius: 2.5px;
   width: 50px;
   height: 50px;
@@ -43,10 +45,7 @@ body, html {
 /*Sidebar*/
 .nav-side-menu {
   overflow: auto;
-  /*font-family: verdana;*/
-  /*font-size: 12px;*/
-  /*font-weight: 200;*/
-  background-color: #2e353d;
+  background-color: #875191;
   position: fixed;
   left: 0px;
   padding: 0px;
@@ -56,11 +55,11 @@ body, html {
 }
 
 .nav-side-menu .brand {
-  background-color: #23282e;
+  background-color: #71397c;
+  border-bottom: 1px solid #403e41;
   line-height: 50px;
   display: block;
   text-align: center;
-  /*font-size: 14px;*/
 }
 
 .nav-side-menu .toggle-btn {
@@ -130,7 +129,7 @@ body, html {
 .nav-side-menu li {
   padding-left: 0px;
   border-left: 3px solid #2e353d;
-  border-bottom: 1px solid #23282e;
+  border-bottom: 1px solid #403e41;
 }
 
 .nav-side-menu li a {
@@ -146,7 +145,7 @@ body, html {
 
 .nav-side-menu li:hover {
   border-left: 3px solid #d19b3d;
-  background-color: #4f5b69;
+  background-color: #a67cae;
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
   -o-transition: all 1s ease;
@@ -156,15 +155,7 @@ body, html {
 
 /*Right Column*/
 #main {
-  /*max-height: 100%;*/
-  /*height: 100%;*/
   overflow: auto;
-  height: calc(100% - 126px);
-}
-
-#messages {
-  /*height: calc(100% - 60px);*/
-  /*overflow: auto;*/
 }
 
 #message-box {
@@ -197,7 +188,6 @@ body, html {
 
   .brand {
     text-align: left !important;
-    /*font-size: 22px;*/
     padding-left: 20px;
     line-height: 50px !important;
   }

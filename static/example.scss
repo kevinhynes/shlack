@@ -1,18 +1,23 @@
-
 $midnight: #352961;
 
-$purple1: #560764;
+//$purple1: #560764;
+//$purple2: #71397c;
+//$purple3: #774181;
+//$purple4: #91519d;
+//$purple5: #c582d5;
+//$pink: #e6b2c6;
+
+$purple1: #51075e;
 $purple2: #71397c;
-$purple3: #774181;
-$purple4: #91519d;
-$purple5: #c582d5;
-$pink: #e6b2c6;
+$purple3: #875191;
+$purple4: #a67cae;
+$lightgray: #8b878b;
+$darkgray: #5b585c;
+$darkergray: #403e41;
 
 $yellow: #ffdf5a;
 $pink_white: #f6e5e5;
 $off_white: #eeeeee;
-
-
 
 
 body,html {
@@ -25,13 +30,8 @@ body,html {
 
 
 /*Navbar*/
-/*.navbar {*/
-  /*background: #560764;*/
-  /*border: 1px solid black;*/
-/*}*/
-
 #navbar {
-  background: #560764;
+  background: $purple1;
   border: 1px solid black;
 }
 .navbar-list {
@@ -42,14 +42,19 @@ body,html {
   margin: 10px 0;
   padding: 0;
 }
+.navbar-list .navbar-brand,
+.navbar-list .nav-link {
+  color: $off_white;
+}
 .usercard {
-  background: #91519d;
-  border: 2px solid dimgray;
+  background: $purple4;
+  border: 1px solid $darkergray;
+  padding: 2px;
   border-radius: 2.5px;
   width: 200px;
 }
 .usercard img {
-  border: 1px solid black;
+  padding: 1px;
   border-radius: 2.5px;
   width: 50px;
   height: 50px;
@@ -58,10 +63,7 @@ body,html {
 /*Sidebar*/
 .nav-side-menu {
   overflow: auto;
-  /*font-family: verdana;*/
-  /*font-size: 12px;*/
-  /*font-weight: 200;*/
-  background-color: #2e353d;
+  background-color: $purple3;
   position: fixed;
   left: 0px;
   padding: 0px;
@@ -70,11 +72,11 @@ body,html {
   color: #e1ffff;
 }
 .nav-side-menu .brand {
-  background-color: #23282e;
+  background-color: $purple2;
+  border-bottom: 1px solid $darkergray;
   line-height: 50px;
   display: block;
   text-align: center;
-  /*font-size: 14px;*/
 }
 .nav-side-menu .toggle-btn {
   display: none;
@@ -134,7 +136,7 @@ body,html {
 .nav-side-menu li {
   padding-left: 0px;
   border-left: 3px solid #2e353d;
-  border-bottom: 1px solid #23282e;
+  border-bottom: 1px solid $darkergray;
 }
 .nav-side-menu li a {
   text-decoration: none;
@@ -147,7 +149,7 @@ body,html {
 }
 .nav-side-menu li:hover {
   border-left: 3px solid #d19b3d;
-  background-color: #4f5b69;
+  background-color: $purple4;
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
   -o-transition: all 1s ease;
@@ -157,17 +159,8 @@ body,html {
 
 /*Right Column*/
 #main {
-  /*max-height: 100%;*/
-  /*height: 100%;*/
   overflow: auto;
-  height: calc(100% - 126px);
 }
-
-#messages {
-  /*height: calc(100% - 60px);*/
-  /*overflow: auto;*/
-}
-
 #message-box {
   position: fixed;
   bottom: 0;
@@ -182,7 +175,6 @@ body,html {
     width: 100%;
     height: auto;
   }
-
   .nav-side-menu .toggle-btn {
     display: block;
     cursor: pointer;
@@ -196,14 +188,11 @@ body,html {
     width: 40px;
     text-align: center;
   }
-
   .brand {
     text-align: left !important;
-    /*font-size: 22px;*/
     padding-left: 20px;
     line-height: 50px !important;
   }
-
   #message-box {
     width: 100%;
   }
@@ -217,7 +206,6 @@ body,html {
   #main {
   	width: calc(100% - 300px);
     float: right;
-
   }
   #message-box {
     width: calc(100% - 300px);
