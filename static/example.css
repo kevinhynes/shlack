@@ -23,6 +23,7 @@ body,html {
   list-style: none;
   align-items: center;
   margin: 10px 0;
+  padding: 0;
 }
 .usercard {
   background: #91519d;
@@ -40,12 +41,13 @@ body,html {
 /*Sidebar*/
 .nav-side-menu {
   overflow: auto;
-  font-family: verdana;
-  font-size: 12px;
-  font-weight: 200;
+  /*font-family: verdana;*/
+  /*font-size: 12px;*/
+  /*font-weight: 200;*/
   background-color: #2e353d;
   position: fixed;
   left: 0px;
+  padding: 0px;
   width: 300px;
   height: 100%;
   color: #e1ffff;
@@ -55,7 +57,7 @@ body,html {
   line-height: 50px;
   display: block;
   text-align: center;
-  font-size: 14px;
+  /*font-size: 14px;*/
 }
 .nav-side-menu .toggle-btn {
   display: none;
@@ -180,7 +182,7 @@ body,html {
 
   .brand {
     text-align: left !important;
-    font-size: 22px;
+    /*font-size: 22px;*/
     padding-left: 20px;
     line-height: 50px !important;
   }
