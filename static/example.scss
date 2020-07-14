@@ -19,6 +19,9 @@ $yellow: #ffdf5a;
 $pink_white: #f6e5e5;
 $off_white: #eeeeee;
 
+* {
+  box-sizing: border-box;
+}
 
 body,html {
   margin: 0px;
@@ -45,6 +48,7 @@ body,html {
 .navbar-list .navbar-brand,
 .navbar-list .nav-link {
   color: $off_white;
+  align-items: center;
 }
 .usercard {
   background: $purple4;
@@ -62,7 +66,7 @@ body,html {
 }
 
 /*Sidebar*/
-.nav-side-menu {
+.sidebar {
   overflow: auto;
   background-color: $purple3;
   position: fixed;
@@ -72,26 +76,26 @@ body,html {
   height: 100%;
   color: #e1ffff;
 }
-.nav-side-menu .brand {
+.sidebar .header {
   background-color: $purple2;
   border-bottom: 1px solid $darkergray;
   line-height: 50px;
   display: block;
   text-align: center;
 }
-.nav-side-menu .toggle-btn {
+.sidebar .toggle-btn {
   display: none;
 }
-.nav-side-menu ul,
-.nav-side-menu li {
+.sidebar ul,
+.sidebar li {
   list-style: none;
   padding: 0px;
   margin: 0px;
   line-height: 35px;
   cursor: pointer;
 }
-.nav-side-menu ul :not(collapsed) .arrow:before,
-.nav-side-menu li :not(collapsed) .arrow:before {
+.sidebar ul :not(collapsed) .arrow:before,
+.sidebar li :not(collapsed) .arrow:before {
   font-family: FontAwesome;
   content: "\f078";
   display: inline-block;
@@ -100,33 +104,33 @@ body,html {
   vertical-align: middle;
   float: right;
 }
-.nav-side-menu ul .active,
-.nav-side-menu li .active {
+.sidebar ul .active,
+.sidebar li .active {
   border-left: 3px solid #d19b3d;
   background-color: #4f5b69;
 }
-.nav-side-menu ul .sub-menu li.active,
-.nav-side-menu li .sub-menu li.active {
+.sidebar ul .sub-menu li.active,
+.sidebar li .sub-menu li.active {
   color: #d19b3d;
 }
-.nav-side-menu ul .sub-menu li.active a,
-.nav-side-menu li .sub-menu li.active a {
+.sidebar ul .sub-menu li.active a,
+.sidebar li .sub-menu li.active a {
   color: #d19b3d;
 }
-.nav-side-menu ul .sub-menu li,
-.nav-side-menu li .sub-menu li {
+.sidebar ul .sub-menu li,
+.sidebar li .sub-menu li {
   background-color: #181c20;
   border: none;
   line-height: 28px;
   border-bottom: 1px solid #23282e;
   margin-left: 0px;
 }
-.nav-side-menu ul .sub-menu li:hover,
-.nav-side-menu li .sub-menu li:hover {
+.sidebar ul .sub-menu li:hover,
+.sidebar li .sub-menu li:hover {
   background-color: #020203;
 }
-.nav-side-menu ul .sub-menu li:before,
-.nav-side-menu li .sub-menu li:before {
+.sidebar ul .sub-menu li:before,
+.sidebar li .sub-menu li:before {
   font-family: FontAwesome;
   content: "\f105";
   display: inline-block;
@@ -134,21 +138,22 @@ body,html {
   padding-right: 10px;
   vertical-align: middle;
 }
-.nav-side-menu li {
+.sidebar li {
   padding-left: 0px;
   border-left: 3px solid #2e353d;
   border-bottom: 1px solid $darkergray;
 }
-.nav-side-menu li a {
+.sidebar li a {
   text-decoration: none;
   color: #e1ffff;
+  padding-left: 10px;
 }
-.nav-side-menu li a i {
+.sidebar li a i {
   padding-left: 10px;
   width: 20px;
   padding-right: 20px;
 }
-.nav-side-menu li:hover {
+.sidebar li:hover {
   border-left: 3px solid #d19b3d;
   background-color: $purple4;
   -webkit-transition: all 1s ease;
@@ -171,17 +176,17 @@ body,html {
 
 /*When screen width is below 767 pixels*/
 @media (max-width: 767px) {
-  .nav-side-menu {
+  .sidebar {
     position: relative;
     width: 100%;
     height: auto;
   }
-  .nav-side-menu .toggle-btn {
+  .sidebar .toggle-btn {
     display: block;
     cursor: pointer;
     position: absolute;
     right: 10px;
-    top: 10px;
+    top: 6px;
     z-index: 10 !important;
     padding: 3px;
     background-color: #ffffff;
@@ -201,7 +206,7 @@ body,html {
 
 /*When screen width is above 767 pixels...*/
 @media (min-width: 767px) {
-  .nav-side-menu .menu-list .menu-content {
+  .sidebar .menu-list .menu-content {
     display: block;
   }
   #main {
