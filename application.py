@@ -1,11 +1,22 @@
-from flask import Flask, render_template, redirect, jsonify, session, url_for
+from flask import Flask, render_template, redirect, jsonify, session, url_for, flash
 from flask_socketio import SocketIO, emit
+# My own / Flask Mega-Tutorial
 from config import Config
-
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 
 app = Flask(__name__)
 app.config.from_object(Config)
 socketio = SocketIO(app)
+# Mega-Tutorial
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
+
+from models import User, Post
+from forms import LoginForm
+
+# frank = User(username='Frankenstein', email="bigfrank@hotmal.com", password_hash='123')
+# print(frank, flush=True)
 
 
 @app.route("/")
@@ -34,3 +45,14 @@ def login():
 @app.route("/example")
 def example():
     return render_template("example.html")
+
+
+# Different HTML page for logging in, testing Flask-WTF
+@app.route("/login_test", methods=["GET", "POST"])
+def login_test():
+    form = LoginForm()
+    if form.validate_on_submit():
+        flash('Login successful for user {}, remember_me={}'.format(
+            form.username.data, form.remember_me.data))
+        return redirect('/index')
+    return render_template("login.html", title='Sign In', form=form)
