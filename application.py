@@ -19,10 +19,10 @@ from forms import LoginForm
 # print(frank, flush=True)
 
 
-@app.route("/")
-def index():
+@app.route("/old")
+def old():
     logged_in = session.get('logged_in', False)
-    return render_template("layout.html", logged_in=logged_in)
+    return render_template("old_layout.html", logged_in=logged_in)
 
 
 @app.route("/ensureLogIn")
@@ -42,9 +42,9 @@ def login():
     return redirect(url_for("index"))
 
 
-@app.route("/example")
-def example():
-    return render_template("example.html")
+@app.route("/")
+def index():
+    return render_template("layout.html")
 
 
 # Different HTML page for logging in, testing Flask-WTF
