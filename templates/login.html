@@ -115,25 +115,37 @@
 {##}
 {#  </div>#}
 
+<div class="container login-container">
   <form action="{{ url_for('login_test') }}" method="post" novalidate>
     {{ form.hidden_tag() }}
     <p>
-      {{ form.username.label }}<br>
-      {{ form.username(size=32) }}<br>
-      {% for error in form.username.errors %}
-        <span style="color: red;">[{{ error }}]</span>
-      {% endfor %}
+      {% if form.username.errors %}
+        {{ form.username.label(class_="control-label") }}
+        {{ form.username(class_="form-control is-invalid", placeholder="Enter username") }}
+        {% for error in form.password.errors %}
+          <span class="invalid-feedback"> {{ error }} </span>
+        {% endfor %}
+      {% else %}
+        {{ form.password.label(class_="control-label") }}<br>
+        {{ form.password(size=32, class_="form-control", placeholder="Enter password") }}<br>
+      {%  endif %}
     </p>
     <p>
-      {{ form.password.label }}<br>
-      {{ form.password(size=32) }}<br>
-      {% for error in form.password.errors %}
-        <span style="color: red;">[{{ error }}]</span>
-      {% endfor %}
+      {% if form.password.errors %}
+        {{ form.password.label(class_="control-label") }}
+        {{ form.password(class_="form-control is-invalid", placeholder="Enter password") }}
+        {% for error in form.password.errors %}
+          <span class="invalid-feedback"> {{ error }} </span>
+        {% endfor %}
+      {% else %}
+        {{ form.password.label(class_="control-label") }}<br>
+        {{ form.password(size=32, class_="form-control", placeholder="Enter password") }}<br>
+      {%  endif %}
     </p>
     <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
     <p>{{ form.submit() }}</p>
   </form>
+</div>
   </body>
 </html>
 
