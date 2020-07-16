@@ -122,12 +122,12 @@
       {% if form.username.errors %}
         {{ form.username.label(class_="control-label") }}
         {{ form.username(class_="form-control is-invalid", placeholder="Enter username") }}
-        {% for error in form.password.errors %}
+        {% for error in form.username.errors %}
           <span class="invalid-feedback"> {{ error }} </span>
         {% endfor %}
       {% else %}
-        {{ form.password.label(class_="control-label") }}<br>
-        {{ form.password(size=32, class_="form-control", placeholder="Enter password") }}<br>
+        {{ form.username.label(class_="control-label") }}<br>
+        {{ form.username(class_="form-control", placeholder="Enter username") }}
       {%  endif %}
     </p>
     <p>
@@ -139,7 +139,7 @@
         {% endfor %}
       {% else %}
         {{ form.password.label(class_="control-label") }}<br>
-        {{ form.password(size=32, class_="form-control", placeholder="Enter password") }}<br>
+        {{ form.password(class_="form-control", placeholder="Enter password") }}
       {%  endif %}
     </p>
     <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
