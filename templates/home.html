@@ -7,17 +7,20 @@
 
 {% block body %}
   <div class="container-fluid overflow-auto" >
+
+    <!--- Start First Row --->
     <div class="row" style="background: #f6efe8; height: 100%;">
-      <div class="col-6 p-5">
+      <div class="col-md-6 p-5">
         <h1 class="display-4 font-weight-bold">
-          Shlack is where scares happen
+          Shlack is where monsters meet
         </h1>
         <lead class="pt-5">
           When monsters come together, scaring just gets better
         </lead>
 
       </div>
-      <div class="col-6 p-5">
+      <div class="col-md-6 p-5">
+
 {#        <h1>#}
 {#          Shlack is where the scares happen#}
 {#        </h1>#}
@@ -29,23 +32,87 @@
 {#          </div>#}
 {#        </div>#}
 {#        no-gutters needed to prevent x-dir overflow?#}
-        <div class="row no-gutters">
-          <div class="col pt-3">
-            <div class="chat border border-dark">
-              <img src="./static/images/monsters/monster-34.svg" style="float: left;"/>
-              <p class="timestamp">username date:date:date</p>
-              <p>Muse about courage of our questions encyclopaedia galactica Orion's sword with pretty stories for which there's little good evidence gathered by gravity and billions upon billions upon billions upon billions upon billions upon billions upon billions.</p>
 
-            </div>
-            <div class="chat border border-primary">
-              <img src="./static/images/monsters/monster-60.svg" style="height: 100px; float: right;"/>
-              <p><strong>username date:date:date</strong></p>
-              <p>Muse about courage of our questions encyclopaedia galactica Orion's sword with pretty stories for which there's little good evidence gathered by gravity and billions upon billions upon billions upon billions upon billions upon billions upon billions.</p>
-            </div>
-          </div>
+{#        PLACING VERTICALLY IN ONE COL#}
+{#        <div class="row no-gutters">#}
+{#          <div class="col pt-3">#}
+{#            <div class="chat border border-dark">#}
+{#              <img src="./static/images/monsters/monster-34.svg" style="float: left;"/>#}
+{#              <p class="timestamp">username date:date:date</p>#}
+{#              <p>Muse about courage of our questions encyclopaedia galactica Orion's sword with pretty stories for which there's little good evidence gathered by gravity and billions upon billions upon billions upon billions upon billions upon billions upon billions.</p>#}
+{##}
+{#            </div>#}
+{#            <div class="chat border border-primary">#}
+{#              <img src="./static/images/monsters/monster-60.svg" style="height: 100px; float: right;"/>#}
+{#              <p><strong>username date:date:date</strong></p>#}
+{#              <p>Muse about courage of our questions encyclopaedia galactica Orion's sword with pretty stories for which there's little good evidence gathered by gravity and billions upon billions upon billions upon billions upon billions upon billions upon billions.</p>#}
+{#            </div>#}
+{#          </div>#}
+{#        </div>#}
+{#      </div>#}
+
+      <div class="media chat">
+        <img class="align-self-start" src="./static/images/monsters/monster-34.svg" style="height: 100px;"/>
+        <div class="media-body">
+            <p class="timestamp">Gerp 12:09PM</p>
+            <p>You must wait until the being is resting!</p>
         </div>
       </div>
+
+      <hr>
+
+      <div class="media chat self">
+        <img class="align-self-start" src="./static/images/monsters/monster-1.svg" style="height: 100px;"/>
+        <div class="media-body">
+            <p class="timestamp">Casius 12:21PM</p>
+            <p>What if the being's lifegiver checks under the night slab?</p>
+        </div>
+      </div>
+
+
+      </div>
+
     </div>
+    <!--- End First Row --->
+    <!--- Start Second Row --->
+    <div class="row flex-row-reverse" style="background: white; height: 100%;">
+      <div class="col-md-6  p-5">
+        <h1 class="display-4 font-weight-bold">
+          Share your scares with the community
+        </h1>
+        <lead class="pt-5">
+          Help your fellow monsters scale up their scare skills!
+        </lead>
+
+      </div>
+
+      <div class="col-md-6  p-5">
+
+        <div class="media chat">
+          <img class="align-self-start" src="./static/images/monsters/monster-43.svg" style="height: 100px;"/>
+          <div class="media-body">
+              <p class="timestamp">Calypso 12:09PM</p>
+              <p>You should have seen the look on their faces when I said "Boo"!</p>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="media chat self">
+          <img class="align-self-end" src="./static/images/monsters/monster-12.svg" style="height: 100px;"/>
+          <div class="media-body">
+              <p class="timestamp">Jeff 12:21PM</p>
+              <p>Wow, what an inspirational story @Calypso!  As always, thanks for sharing.
+                 I wish I could be as scary as you.  And also that my name wasn't Jeff.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <!--- End Second Row --->
+
+
   </div>
 
 {% endblock %}
