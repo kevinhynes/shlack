@@ -6,6 +6,8 @@ $lightgray: #8b878b;
 $darkgray: #5b585c;
 $darkergray: #403e41;
 
+$peach: #f6efe8;
+
 $midnight: #352961;
 $yellow: #ffdf5a;
 $pink_white: #f6e5e5;
@@ -159,6 +161,8 @@ body,html {
 /*Right Column*/
 #main {
   overflow: auto;
+  background: $peach;
+
 }
 #message-box {
   position: fixed;

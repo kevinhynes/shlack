@@ -1,65 +1,19 @@
-{#<!DOCTYPE html>#}
-{#<html lang="en">#}
-{#<head>#}
-{#  <title>{% block title %}{% endblock %}</title>#}
-{#  <meta charset="utf-8">#}
-{#  <meta name="viewport" content="width=device-width, initial-scale=1">#}
-{#  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">#}
-{#  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"#}
-{#      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">#}
-{#  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='example.css' ) }}">#}
-{#  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>#}
-{#  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>#}
-{#  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>#}
-{#  <script src="{{url_for('static', filename='main.js')}}"></script>#}
-{#</head>#}
-{#<body>#}
-{##}
-{#<div id="navbar" class="container-fluid shadow">#}
-{#      <ul class="navbar-list">#}
-{#        <li>#}
-{#          <a class="navbar-brand" href="#">Schlack</a>#}
-{#        </li>#}
-{#        <li class="nav-item mr-auto">#}
-{#          <div class="usercard d-flex flex-row no-gutters">#}
-{#              <img src="./static/images/monsters/monster-34.svg"/>#}
-{#            <div class="col">#}
-{#              <p class="text-center text-white my-0">Username</p>#}
-{#              <hr class="my-0">#}
-{#              <p class="text-center text-white my-0"><small>Subtext</small></p>#}
-{#              <span><img src="./static/images/specials/006-flask.svg" style="width: 25px"></span>#}
-{#              <span><img src="./static/images/specials/009-cauldron.svg" style="width: 25px"></span>#}
-{##}
-{#            </div>#}
-{#          </div>#}
-{#        </li>#}
-{##}
-{#        {% if not logged_in %}#}
-{#        <li class="nav-item">#}
-{#          <a class="nav-link" href="">Login</a>#}
-{#        </li>#}
-{#        <li class="nav-item">#}
-{#          <a class="nav-link nav-fill" href="{{ url_for("login_test") }}">Sign Up</a>#}
-{#        </li>#}
-{#        <li class="nav-item">#}
-{#          <!-- Button trigger modal -->#}
-{#          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">#}
-{#            Launch demo modal#}
-{#          </button>#}
-{#        </li>#}
-{#      {% else %}#}
-{#        <li class="nav-item pl-0">#}
-{#          <a class="nav-link" href="">Logout</a>#}
-{#        </li>#}
-{#      {% endif %}#}
-{##}
-{#      </ul>#}
-{#</div>#}
-
 {% extends "layout.html" %}
 
 {% block title %}
   Chat
+{% endblock %}
+
+
+{% block body %}
+  <div class="container-fluid" style="background: #f6efe8; height: 100%;">
+    <div class="row">
+      <div class="col">
+
+      </div>
+    </div>
+  </div>
+
 {% endblock %}
 
 <!-- Add Channel Modal -->
@@ -192,11 +146,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-{##}
-{##}
-{#</body>#}
-{#</html>#}

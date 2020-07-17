@@ -162,6 +162,7 @@ body, html {
 /*Right Column*/
 #main {
   overflow: auto;
+  background: #f6efe8;
 }
 
 #message-box {
@@ -226,14 +227,6 @@ body, html {
     width: 576px;
   }
 
-  .book-result {
-    width: 576px;
-  }
-
-  .authors-list {
-    width: 576px;
-  }
-
   #login-header::before {
     content: "Please Log In to GoodBookBadBook";
   }
@@ -248,14 +241,6 @@ body, html {
   }
 
   .signup-alert {
-    width: 100%;
-  }
-
-  .book-result {
-    width: 100%;
-  }
-
-  .authors-list {
     width: 100%;
   }
 
@@ -282,10 +267,6 @@ body, html {
 .list-container {
   list-style-type: none;
   margin: 0;
-  padding: 0;
-}
-
-.book-result {
   padding: 0;
 }
 
