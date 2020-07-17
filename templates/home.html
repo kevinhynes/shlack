@@ -6,79 +6,39 @@
 
 
 {% block body %}
-  <div class="container-fluid" style="background: #f6efe8; height: 100%;">
+  <div class="container-fluid overflow-auto" style="background: #f6efe8; height: 100%;">
     <div class="row">
-      <div class="col">
+      <div class="col-6 p-5">
+        <h1>
+          Shlack is where the scares happen
+        </h1>
+        <lead>
+          When monsters come together, scaring just gets better
+        </lead>
 
+      </div>
+      <div class="col-6 p-5">
+{#        <h1>#}
+{#          Shlack is where the scares happen#}
+{#        </h1>#}
+{#        <lead>#}
+{#          When monsters come together, scaring just gets better#}
+{#        </lead>#}
+{#        <div class="row">#}
+{#          <div class="col">#}
+{#          </div>#}
+{#        </div>#}
+        <div class="row">
+          <div class="col ">
+            <img src="./static/images/monsters/monster-34.svg" style="height: 100px; object-fit: fill;"/>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
 {% endblock %}
 
-<!-- Add Channel Modal -->
-<div class="modal fade" id="channelModal" tabindex="-1" role="dialog" aria-labelledby="channelModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="channelModalLabel">Welcome to Shlack</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-
-        <!-- Nav -->
-        <ul class="nav nav-tabs nav-fill">
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Sign In</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Register</a>
-          </li>
-        </ul>
-        <!-- End Nav -->
-
-
-      <div class="container login-container">
-        <form action="{{ url_for('login_test') }}" method="post" novalidate>
-          {{ form.hidden_tag() }}
-          <p>
-            {% if form.username.errors %}
-              {{ form.username.label(class_="control-label") }}
-              {{ form.username(class_="form-control is-invalid", placeholder="Enter username") }}
-              {% for error in form.username.errors %}
-                <span class="invalid-feedback"> {{ error }} </span>
-              {% endfor %}
-            {% else %}
-              {{ form.username.label(class_="control-label") }}<br>
-              {{ form.username(class_="form-control", placeholder="Enter username") }}
-            {%  endif %}
-          </p>
-          <p>
-            {% if form.password.errors %}
-              {{ form.password.label(class_="control-label") }}
-              {{ form.password(class_="form-control is-invalid", placeholder="Enter password") }}
-              {% for error in form.password.errors %}
-                <span class="invalid-feedback"> {{ error }} </span>
-              {% endfor %}
-            {% else %}
-              {{ form.password.label(class_="control-label") }}<br>
-              {{ form.password(class_="form-control", placeholder="Enter password") }}
-            {%  endif %}
-          </p>
-          <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
-          <p>{{ form.submit() }}</p>
-        </form>
-      </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 
