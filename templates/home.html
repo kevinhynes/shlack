@@ -6,13 +6,13 @@
 
 
 {% block body %}
-  <div class="container-fluid overflow-auto" style="background: #f6efe8; height: 100%;">
-    <div class="row">
+  <div class="container-fluid overflow-auto" >
+    <div class="row" style="background: #f6efe8; height: 100%;">
       <div class="col-6 p-5">
-        <h1>
-          Shlack is where the scares happen
+        <h1 class="display-4 font-weight-bold">
+          Shlack is where scares happen
         </h1>
-        <lead>
+        <lead class="pt-5">
           When monsters come together, scaring just gets better
         </lead>
 
@@ -28,9 +28,20 @@
 {#          <div class="col">#}
 {#          </div>#}
 {#        </div>#}
-        <div class="row">
-          <div class="col ">
-            <img src="./static/images/monsters/monster-34.svg" style="height: 100px; object-fit: fill;"/>
+{#        no-gutters needed to prevent x-dir overflow?#}
+        <div class="row no-gutters">
+          <div class="col pt-3">
+            <div class="chat border border-dark">
+              <img src="./static/images/monsters/monster-34.svg" style="float: left;"/>
+              <p class="timestamp">username date:date:date</p>
+              <p>Muse about courage of our questions encyclopaedia galactica Orion's sword with pretty stories for which there's little good evidence gathered by gravity and billions upon billions upon billions upon billions upon billions upon billions upon billions.</p>
+
+            </div>
+            <div class="chat border border-primary">
+              <img src="./static/images/monsters/monster-60.svg" style="height: 100px; float: right;"/>
+              <p><strong>username date:date:date</strong></p>
+              <p>Muse about courage of our questions encyclopaedia galactica Orion's sword with pretty stories for which there's little good evidence gathered by gravity and billions upon billions upon billions upon billions upon billions upon billions upon billions.</p>
+            </div>
           </div>
         </div>
       </div>

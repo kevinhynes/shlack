@@ -1,0 +1,63 @@
+body, html {
+  height: 100%;
+  overflow: hidden;
+}
+
+.fill {
+  min-height: 100%;
+}
+
+.navbar {
+  background: #560764;
+  border: 1px solid black;
+}
+
+.usercard {
+  background: #91519d;
+  border: 2px solid dimgray;
+  border-radius: 2.5px;
+  width: 200px;
+}
+
+.usercard img {
+  border: 1px solid black;
+  border-radius: 2.5px;
+  width: 50px;
+  height: 50px;
+}
+
+.sidebar {
+  background: #71397c;
+}
+
+.sidebar ul {
+  padding: 0px;
+}
+
+.sidebar ul li, h6 {
+  padding-left: 15px;
+}
+
+.sidebar li:hover {
+  border-left: 1px solid #ffdf5a;
+  background: #91519d;
+  transition: all 1s ease;
+}
+
+.messages {
+  background: #eeeeee;
+  height: calc(100% - 60px);
+}
+
+.message-box {
+  background: #eeeeee;
+  border: 1px solid dimgray;
+  border-radius: 2.5px;
+  height: 60px;
+}
+
+.test {
+  background: #77dd11;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,87 @@
+$midnight: #352961;
+
+$purple1: #560764;
+$purple2: #71397c;
+$purple3: #774181;
+$purple4: #91519d;
+$purple5: #c582d5;
+$pink: #e6b2c6;
+
+$yellow: #ffdf5a;
+$pink_white: #f6e5e5;
+$off_white: #eeeeee;
+
+body, html {
+  height: 100%;
+  overflow: hidden;
+}
+
+.fill {
+  min-height: 100%;
+}
+
+.navbar {
+  background: $purple1;
+  border: 1px solid black;
+}
+//
+//.navbar ul{
+//  list-style: inside;
+//}
+
+.usercard {
+  background: $purple4;
+  border: 2px solid dimgray;
+  border-radius: 2.5px;
+  width: 200px;
+}
+
+//.usercard .img-col {
+//  flex-: 0 0 50px;
+//  width: 50px;
+//}
+
+.usercard img {
+  border: 1px solid black;
+  border-radius: 2.5px;
+  width: 50px;
+  height: 50px;
+}
+
+.sidebar {
+  background: $purple2;
+}
+
+.sidebar ul {
+  padding: 0px;
+}
+
+.sidebar ul li,h6 {
+  padding-left: 15px;
+}
+
+.sidebar li:hover {
+  border-left: 1px solid $yellow;
+  background: $purple4;
+  //-webkit-transition: all 1s ease;
+  //-moz-transition: all 1s ease;
+  //-o-transition: all 1s ease;
+  //-ms-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.messages {
+  background: $off_white;
+  height: calc(100% - 60px);
+}
+
+.message-box {
+  background: $off_white;
+  border: 1px solid dimgray;
+  border-radius: 2.5px;
+  height: 60px;
+}
+
+.test {
+  background: #77dd11;
+}

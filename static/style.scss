@@ -1,87 +1,276 @@
-$midnight: #352961;
-
-$purple1: #560764;
+$purple1: #51075e;
 $purple2: #71397c;
-$purple3: #774181;
-$purple4: #91519d;
-$purple5: #c582d5;
-$pink: #e6b2c6;
+$purple3: #875191;
+$purple4: #a67cae;
+$lightgray: #8b878b;
+$darkgray: #5b585c;
+$darkergray: #403e41;
 
+$peach: #f6efe8;
+
+$midnight: #352961;
 $yellow: #ffdf5a;
 $pink_white: #f6e5e5;
 $off_white: #eeeeee;
+$white: #ffffff;
 
-body, html {
+* {
+  box-sizing: border-box;
+}
+
+body,html {
+  margin: 0px;
+  padding: 0px;
+  max-height: 100%;
   height: 100%;
   overflow: hidden;
 }
 
-.fill {
-  min-height: 100%;
-}
 
-.navbar {
+/*Navbar*/
+#navbar {
   background: $purple1;
   border: 1px solid black;
 }
-//
-//.navbar ul{
-//  list-style: inside;
+.navbar-list {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  align-items: center;
+  margin: 10px 0;
+  padding: 0;
+}
+//.navbar-icon {
+//  align-items:center;
 //}
 
+.navbar-list .navbar-brand,
+.navbar-list .nav-link {
+  color: $white;
+  align-items: center;
+}
 .usercard {
   background: $purple4;
-  border: 2px solid dimgray;
+  border: 1px solid $darkergray;
+  padding: 2px;
   border-radius: 2.5px;
   width: 200px;
+  //align-items: center;
 }
-
-//.usercard .img-col {
-//  flex-: 0 0 50px;
-//  width: 50px;
-//}
-
 .usercard img {
-  border: 1px solid black;
+  padding: 1px;
   border-radius: 2.5px;
   width: 50px;
   height: 50px;
 }
 
+/*Sidebar*/
 .sidebar {
-  background: $purple2;
-}
-
-.sidebar ul {
+  overflow: auto;
+  background-color: $purple3;
+  position: fixed;
+  left: 0px;
   padding: 0px;
+  width: 300px;
+  height: 100%;
+  color: #e1ffff;
 }
-
-.sidebar ul li,h6 {
-  padding-left: 15px;
+.sidebar .header {
+  background-color: $purple2;
+  border-bottom: 1px solid $darkergray;
+  line-height: 50px;
+  display: block;
+  text-align: center;
 }
-
+.sidebar .toggle-btn {
+  display: none;
+}
+.sidebar ul,
+.sidebar li {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  line-height: 35px;
+  cursor: pointer;
+}
+.sidebar ul :not(collapsed) .arrow:before,
+.sidebar li :not(collapsed) .arrow:before {
+  font-family: FontAwesome;
+  content: "\f078";
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
+  vertical-align: middle;
+  float: right;
+}
+.sidebar ul .active,
+.sidebar li .active {
+  border-left: 3px solid #d19b3d;
+  background-color: #4f5b69;
+}
+.sidebar ul .sub-menu li.active,
+.sidebar li .sub-menu li.active {
+  color: #d19b3d;
+}
+.sidebar ul .sub-menu li.active a,
+.sidebar li .sub-menu li.active a {
+  color: #d19b3d;
+}
+.sidebar ul .sub-menu li,
+.sidebar li .sub-menu li {
+  background-color: #181c20;
+  border: none;
+  line-height: 28px;
+  border-bottom: 1px solid #23282e;
+  margin-left: 0px;
+}
+.sidebar ul .sub-menu li:hover,
+.sidebar li .sub-menu li:hover {
+  background-color: #020203;
+}
+.sidebar ul .sub-menu li:before,
+.sidebar li .sub-menu li:before {
+  font-family: FontAwesome;
+  content: "\f105";
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
+  vertical-align: middle;
+}
+.sidebar li {
+  padding-left: 0px;
+  border-left: 3px solid #2e353d;
+  border-bottom: 1px solid $darkergray;
+}
+.sidebar li a {
+  text-decoration: none;
+  color: #e1ffff;
+  padding-left: 10px;
+}
+.sidebar li a i {
+  padding-left: 10px;
+  width: 20px;
+  padding-right: 20px;
+}
 .sidebar li:hover {
-  border-left: 1px solid $yellow;
-  background: $purple4;
-  //-webkit-transition: all 1s ease;
-  //-moz-transition: all 1s ease;
-  //-o-transition: all 1s ease;
-  //-ms-transition: all 1s ease;
+  border-left: 3px solid #d19b3d;
+  background-color: $purple4;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
   transition: all 1s ease;
 }
 
-.messages {
-  background: $off_white;
-  height: calc(100% - 60px);
+/*Right Column*/
+#main {
+  overflow: auto;
+  background: $peach;
+
+}
+#message-box {
+  position: fixed;
+  bottom: 0;
+  background: #eeeeee;
 }
 
-.message-box {
-  background: $off_white;
-  border: 1px solid dimgray;
-  border-radius: 2.5px;
-  height: 60px;
+.chat img {
+  height: 100px;
+}
+.chat .timestamp {
+  font-weight: bold;
 }
 
-.test {
-  background: #77dd11;
+
+/*When screen width is below 767 pixels*/
+@media (max-width: 767px) {
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+  .sidebar .toggle-btn {
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 6px;
+    z-index: 10 !important;
+    padding: 3px;
+    background-color: #ffffff;
+    color: #000;
+    width: 40px;
+    text-align: center;
+  }
+  .brand {
+    text-align: left !important;
+    padding-left: 20px;
+    line-height: 50px !important;
+  }
+  #message-box {
+    width: 100%;
+  }
+}
+
+/*When screen width is above 767 pixels...*/
+@media (min-width: 767px) {
+  .sidebar .menu-list .menu-content {
+    display: block;
+  }
+  #main {
+  	width: calc(100% - 300px);
+    float: right;
+  }
+  #message-box {
+    width: calc(100% - 300px);
+  }
+}
+
+
+//////////////////////////////////////////////////////////////////////////////
+//Just for login_test.html
+//////////////////////////////////////////////////////////////////////////////
+@media (min-width: 576px) {
+  .login-container {
+    width: 576px;
+  }
+  .signup-alert {
+    width: 576px;
+  }
+  #login-header::before {
+    content: "Please Log In to GoodBookBadBook";
+  }
+  #signup-header::before {
+    content: "Sign Up for GoodBookBadBook";
+  }
+}
+
+@media (max-width: 575px) {
+  .login-container {
+    width: 100%;
+  }
+  .signup-alert {
+    width: 100%;
+  }
+  #login-header::before {
+    content: "Please Log In"
+  }
+  #signup-header::before {
+    content: "Sign Up"
+  }
+}
+
+#signup-header {
+  text-align: center;
+}
+#login-header {
+  text-align: center;
+}
+.signup-alert {
+  align-content: center;
+}
+.list-container {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
