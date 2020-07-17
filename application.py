@@ -38,13 +38,7 @@ def is_user_logged_in():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    session['logged_in'] = True
     return redirect(url_for("index"))
-
-
-@app.route("/")
-def index():
-    return render_template("layout.html")
 
 
 # Different HTML page for logging in, testing Flask-WTF
@@ -56,3 +50,21 @@ def login_test():
             form.username.data, form.remember_me.data))
         return redirect('/example')
     return render_template("login.html", title='Sign In', form=form)
+
+
+@app.route("/", methods=["GET", "POST"])
+def index():
+    form = LoginForm()
+    if form.validate_on_submit():
+        flash('Login successful for user {}, remember_me={}'.format(
+            form.username.data, form.remember_me.data))
+        session["logged_in"] = True
+        print("logged in???", flush=True)
+        return redirect('/chat')
+    return render_template("home.html", title="Home", form=form)
+
+
+@app.route("/chat")
+def chat():
+    form = LoginForm()
+    return render_template("chat.html", title="Home", form=form)

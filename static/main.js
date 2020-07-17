@@ -1,5 +1,6 @@
 $(document).ready(function() {
-    // ensureLogIn()
+
+    ensureLogIn()
 
     // Resizing Messages
     const mql = window.matchMedia('(max-width: 767px)')
@@ -18,7 +19,7 @@ function ensureLogIn() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             console.log(xhr.response)
             if (!xhr.response['logged_in']) {
-                $('#exampleModal').modal('show')
+                $('#signInModal').modal('show')
                 console.log('opening modal')
             } else {
                 console.log('not opening modal')
