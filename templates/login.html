@@ -117,9 +117,15 @@
 
 {% extends "layout.html" %}
 
+{% block scripts %}
+<script src="{{url_for('static', filename='login.js')}}"></script>
+{% endblock %}
+
+
 {% block body %}
-  <div class="container login-container">
-    <
+  <div id="login-container" class="container login-container">
+    <h3 id="login-header" class="text-center"></h3>
+
 
     <form  method="post" novalidate>
       {{ form.hidden_tag() }}

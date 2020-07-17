@@ -2,17 +2,14 @@ $purple1: #51075e;
 $purple2: #71397c;
 $purple3: #875191;
 $purple4: #a67cae;
+
+$peach: #f6efe8;
+$white: #ffffff;
+$off_white: #eeeeee;
+$lightergray: #f5f5f5;
 $lightgray: #8b878b;
 $darkgray: #5b585c;
 $darkergray: #403e41;
-
-$peach: #f6efe8;
-
-$midnight: #352961;
-$yellow: #ffdf5a;
-$pink_white: #f6e5e5;
-$off_white: #eeeeee;
-$white: #ffffff;
 
 $userblueborder: #004085;
 $userblue: #cce5ff;
@@ -175,7 +172,7 @@ body,html {
 #message-box {
   position: fixed;
   bottom: 0;
-  background: #eeeeee;
+  background: $off_white;
 }
 
 
@@ -198,11 +195,12 @@ body,html {
     background: $lightgray;
     border: 2px inset black;
     border-radius: 5px;
+    align-self: flex-end;
   }
 }
 
 .media-body {
-  background: #eeeeee;
+  background: $off_white;
   border: 1.5px inset $darkergray;
   border-radius: 15px 30px 15px 5px;
   padding: 0px 20px;
@@ -224,6 +222,10 @@ body,html {
   border-radius: 30px 15px 5px 15px;
 }
 
+footer {
+  background: $lightergray;
+  margin: 0px -15px;
+}
 
 /*When screen width is below 767 pixels*/
 @media (max-width: 767px) {
@@ -276,15 +278,16 @@ body,html {
 @media (min-width: 576px) {
   .login-container {
     width: 576px;
+    background: $off_white;
   }
   .signup-alert {
     width: 576px;
   }
   #login-header::before {
-    content: "Please Log In to GoodBookBadBook";
+    content: "Please Log In to Shlack";
   }
   #signup-header::before {
-    content: "Sign Up for GoodBookBadBook";
+    content: "Sign Up for Shlack";
   }
 }
 

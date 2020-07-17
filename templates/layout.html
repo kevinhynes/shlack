@@ -11,7 +11,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-  <script src="{{url_for('static', filename='main.js')}}"></script>
+  {% block scripts %}{% endblock %}
 </head>
 <body>
 
@@ -19,7 +19,7 @@
       <ul class="navbar-list">
         <li>
           <a class="navbar-brand" href="#">
-            <img src="./static/images/brand-icons/014-speech-bubble-1.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+            <img src="./static/images/brand-icons/017-speech-bubble-2.svg" width="30" height="30" class="d-inline-block align-top" alt="">
           Shlack
           </a>
 {#          <a class="navbar-brand" href="#">Schlack</a>#}
