@@ -36,22 +36,6 @@ def is_user_logged_in():
     return jsonify(response)
 
 
-@app.route("/login", methods=["GET", "POST"])
-def login():
-    return redirect(url_for("index"))
-
-
-# Different HTML page for logging in, testing Flask-WTF
-@app.route("/login_test", methods=["GET", "POST"])
-def login_test():
-    form = LoginForm()
-    if form.validate_on_submit():
-        flash('Login successful for user {}, remember_me={}'.format(
-            form.username.data, form.remember_me.data))
-        return redirect('/example')
-    return render_template("login.html", title='Sign In', form=form)
-
-
 @app.route("/", methods=["GET", "POST"])
 def index():
     form = LoginForm()
@@ -61,10 +45,32 @@ def index():
         session["logged_in"] = True
         print("logged in???", flush=True)
         return redirect('/chat')
-    return render_template("home.html", title="Home", form=form)
+    logged_in = session.get('logged_in', False)
+    return render_template("home.html", title="Home", form=form, logged_in=logged_in)
 
 
 @app.route("/chat")
 def chat():
     form = LoginForm()
-    return render_template("chat.html", title="Home", form=form)
+    logged_in = session.get('logged_in', False)
+    return render_template("chat.html", title="Chat", form=form, logged_in=logged_in)
+
+
+# Different HTML page for logging in, testing Flask-WTF
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        flash('Login successful for user {}, remember_me={}'.format(
+            form.username.data, form.remember_me.data))
+        session["logged_in"] = True
+        return redirect("/chat")
+    return render_template("login.html", title="Sign In", form=form)
+
+
+@app.route("/logout")
+def logout():
+    form = LoginForm()
+    session.pop('logged_in')
+    logged_in = session.get('logged_in', False)
+    return render_template("home.html", title="Home", form=form, logged_in=logged_in)

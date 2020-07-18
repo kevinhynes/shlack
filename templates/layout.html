@@ -31,10 +31,10 @@
 
         {% if not logged_in %}
         <li class="nav-item ml-auto">
-          <a class="nav-link" href="">Login</a>
+          <a class="nav-link" href="{{ url_for("login") }}">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-fill" href="{{ url_for("login_test") }}">Sign Up</a>
+          <a class="nav-link nav-fill" href="#">Sign Up</a>
         </li>
         <li class="nav-item">
           <!-- Button trigger modal -->
@@ -43,7 +43,7 @@
           </button>
         </li>
       {% else %}
-        <li class="nav-item">
+        <li class="nav-item ml-auto">
           <div class="usercard d-flex flex-row no-gutters">
               <img src="./static/images/monsters/monster-34.svg"/>
             <div class="col">
@@ -57,7 +57,7 @@
           </div>
         </li>
         <li class="nav-item pl-0">
-          <a class="nav-link" href="">Logout</a>
+          <a class="nav-link" href="{{ url_for("logout") }}">Logout</a>
         </li>
       {% endif %}
 

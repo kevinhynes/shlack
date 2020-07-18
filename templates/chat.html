@@ -277,7 +277,7 @@
 
 
       <div class="container login-container">
-        <form action="{{ url_for('login_test') }}" method="post" novalidate>
+        <form action="{{ url_for('login') }}" method="post" novalidate>
           {{ form.hidden_tag() }}
           <p>
             {% if form.username.errors %}
