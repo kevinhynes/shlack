@@ -26,24 +26,11 @@
             <img src="./static/images/brand-icons/017-speech-bubble-2.svg" width="30" height="30" class="d-inline-block align-top" alt="">
           Shlack
           </a>
-{#          <a class="navbar-brand" href="#">Schlack</a>#}
         </li>
-        <li class="nav-item mr-auto">
-          <div class="usercard d-flex flex-row no-gutters">
-              <img src="./static/images/monsters/monster-34.svg"/>
-            <div class="col">
-              <p class="text-center text-white my-0">Username</p>
-              <hr class="my-0">
-{#              <p class="text-center text-white my-0"><small>Subtext</small></p>#}
-{#              <span><img src="./static/images/specials/006-flask.svg" style="width: 25px"></span>#}
-{#              <span><img src="./static/images/specials/009-cauldron.svg" style="width: 25px"></span>#}
 
-            </div>
-          </div>
-        </li>
 
         {% if not logged_in %}
-        <li class="nav-item">
+        <li class="nav-item ml-auto">
           <a class="nav-link" href="">Login</a>
         </li>
         <li class="nav-item">
@@ -56,6 +43,19 @@
           </button>
         </li>
       {% else %}
+        <li class="nav-item">
+          <div class="usercard d-flex flex-row no-gutters">
+              <img src="./static/images/monsters/monster-34.svg"/>
+            <div class="col">
+              <p class="text-center text-white my-0">Username</p>
+              <hr class="my-0">
+{#              <p class="text-center text-white my-0"><small>Subtext</small></p>#}
+{#              <span><img src="./static/images/specials/006-flask.svg" style="width: 25px"></span>#}
+{#              <span><img src="./static/images/specials/009-cauldron.svg" style="width: 25px"></span>#}
+
+            </div>
+          </div>
+        </li>
         <li class="nav-item pl-0">
           <a class="nav-link" href="">Logout</a>
         </li>
