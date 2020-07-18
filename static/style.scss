@@ -177,7 +177,6 @@ body,html {
 
 
 //Chats
-
 .media {
   display: flex;
   flex-direction: row;
@@ -209,16 +208,16 @@ body,html {
     margin-bottom: 0px;
   }
 }
-.chat.self {
+.media.self {
   display: flex;
   flex-direction: row-reverse;
   text-align: right;
 }
-.chat.self img {
+.media.self img {
   background: $userblue;
   border: 2px inset $userblueborder;
 }
-.chat.self .media-body {
+.media.self .media-body {
   border-radius: 30px 15px 5px 15px;
 }
 
