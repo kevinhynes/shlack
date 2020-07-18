@@ -27,7 +27,6 @@ body,html {
   //overflow: hidden;
 }
 
-
 /*Navbar*/
 #navbar {
   background: $purple1;
@@ -220,6 +219,46 @@ body,html {
 .media.self .media-body {
   border-radius: 30px 15px 5px 15px;
 }
+
+
+/*Fake Sidebar*/
+.fake-sidebar {
+  overflow: auto;
+  background-color: $purple3;
+  left: 0px;
+  padding: 0px;
+  margin: 0px auto;
+  max-width: 300px;
+  height: 100%;
+  color: $white;
+  ul {
+    list-style: none;
+    cursor: pointer;
+    line-height: 35px;
+    padding: 0px;
+  }
+  li {
+    padding-left: 20px;
+  }
+  li a {
+    color: $white;
+  }
+  .header {
+    background-color: $purple2;
+    border-bottom: 1px solid $darkergray;
+    line-height: 50px;
+    display: block;
+    text-align: center;
+    cursor: default;
+    padding-left: 0px;
+  }
+  .add-channel {
+    cursor: default;
+  }
+}
+
+
+
 
 footer {
   background: $lightergray;

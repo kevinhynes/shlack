@@ -58,32 +58,40 @@
 
       <div class="col-md-6 p-5">
 
-        <ul class="menu-content">
-          <li>
-            <span style="padding-left: 10px;">Add Channel</span>
-            <button class="btn btn-secondary" data-target="#channelModal" data-toggle="modal" style="float: right;"><i class="fa fa-plus"></i></button>
-          </li>
+        <div class="fake-sidebar">
+          <ul>
+            <li class="header">
+              <span >Channels</span>
+            </li>
 
-          <li data-toggle="collapse" data-target="#service" class="collapsed" style="clear: right;">
-            <a href="#"><i class="fa fa-globe fa-lg"></i> Services <span class="arrow"></span></a>
-          </li>
-          <ul class="sub-menu collapse" id="service">
-            <li>New Service 1</li>
-            <li>New Service 2</li>
-            <li>New Service 3</li>
+            <li class="add-channel">
+              <span>Add channel</span>
+              <button class="btn btn-secondary" data-target="#channelModal" data-toggle="modal" style="float: right;"><i class="fa fa-plus"></i></button>
+            </li>
+
+            <li style="clear: right;">
+              <a href="#"><i class="fas fa-exclamation-circle my-2 mx-auto"></i> Announcements <span class="arrow"></span></a>
+            </li>
+
+            <li>
+              <a href="#"><i class="fas fa-book-dead my-2 mx-auto"></i> Scare Stories <span class="arrow"></span></a>
+            </li>
+
+            <li>
+              <a href="#"><i class="fas fa-trash-alt my-2 mx-auto"></i> Housing <span class="arrow"></span></a>
+            </li>
+
+{#            <li data-toggle="collapse" data-target="#new" class="collapsed">#}
+{#              <a href="#"><i class="fa fa-car fa-lg"></i> New <span class="arrow"></span></a>#}
+{#            </li>#}
+{#            <ul class="sub-menu collapse" id="new">#}
+{#              <li>New New 1</li>#}
+{#              <li>New New 2</li>#}
+{#              <li>New New 3</li>#}
+{#            </ul>#}
+
           </ul>
-
-          <li data-toggle="collapse" data-target="#new" class="collapsed">
-            <a href="#"><i class="fa fa-car fa-lg"></i> New <span class="arrow"></span></a>
-          </li>
-          <ul class="sub-menu collapse" id="new">
-            <li>New New 1</li>
-            <li>New New 2</li>
-            <li>New New 3</li>
-          </ul>
-
-        </ul>
-
+        </div>
       </div>
 
     </div>
@@ -137,7 +145,7 @@
         <div class="card my-2">
           <i class="fas fa-comments my-2 mx-auto" style="font-size: 50px;"></i>
           <div class="card-body">
-            <h5 class="card-title">Monster Chat</h5>
+            <h5 class="card-title">Chat and learn</h5>
             <p class="card-text">Connect with other monsters on what matters most - scaring humans!</p>
           </div>
         </div>
