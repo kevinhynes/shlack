@@ -8,13 +8,13 @@ $(document).ready(function() {
 
 
 function resizeLoginContainer(mql) {
-    const navbar = document.getElementById('navbar')
-    const login_container = document.getElementById("login-container")
+    const navbar = document.getElementById("navbar")
+    const login_page = document.getElementById("login-page")
 
     const height = window.innerHeight - navbar.offsetHeight
-    login_container.style.height = height + 'px'
+    login_page.style.height = height + 'px'
 
-    console.log(`resizeLoginContainer func - : ${window.innerHeight} ${navbar.offsetHeight} ${login_container.offsetHeight} ${height}`)
+    console.log(`resizeLoginContainer func - : ${window.innerHeight} ${navbar.offsetHeight} ${login_page.offsetHeight} ${height}`)
 
 }
 

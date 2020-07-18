@@ -258,7 +258,25 @@ body,html {
 }
 
 
+//Login Page
+.login-page {
+  display: block;
+  position: absolute;  //Not sure why #login-page is not at top
+  top: 0;
+}
 
+.login-container {
+  display: block;
+  background: $off_white;
+  height: 400px;
+  width: 400px;
+  margin: 150px auto 0px;  //top right&left bottom
+  padding: 20px;
+}
+
+#login-header {
+  text-align: center;
+}
 
 footer {
   background: $lightergray;
@@ -293,6 +311,9 @@ footer {
   #message-box {
     width: 100%;
   }
+  .login-container {
+    width: 100%;
+  }
 }
 
 /*When screen width is above 767 pixels...*/
@@ -307,6 +328,9 @@ footer {
   #message-box {
     width: calc(100% - 300px);
   }
+  .login-container {
+    width: 576px;
+  }
 }
 
 
@@ -314,10 +338,6 @@ footer {
 //Just for login_test.html
 //////////////////////////////////////////////////////////////////////////////
 @media (min-width: 576px) {
-  .login-container {
-    width: 576px;
-    background: $off_white;
-  }
   .signup-alert {
     width: 576px;
   }
@@ -330,9 +350,6 @@ footer {
 }
 
 @media (max-width: 575px) {
-  .login-container {
-    width: 100%;
-  }
   .signup-alert {
     width: 100%;
   }
@@ -345,9 +362,6 @@ footer {
 }
 
 #signup-header {
-  text-align: center;
-}
-#login-header {
   text-align: center;
 }
 .signup-alert {

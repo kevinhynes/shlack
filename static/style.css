@@ -252,6 +252,25 @@ body, html {
   cursor: default;
 }
 
+.login-page {
+  display: block;
+  position: absolute;
+  top: 0;
+}
+
+.login-container {
+  display: block;
+  background: #eeeeee;
+  height: 400px;
+  width: 400px;
+  margin: 150px auto 0px;
+  padding: 20px;
+}
+
+#login-header {
+  text-align: center;
+}
+
 footer {
   background: #f5f5f5;
   margin: 0px -15px;
@@ -288,6 +307,10 @@ footer {
   #message-box {
     width: 100%;
   }
+
+  .login-container {
+    width: 100%;
+  }
 }
 /*When screen width is above 767 pixels...*/
 @media (min-width: 767px) {
@@ -303,13 +326,12 @@ footer {
   #message-box {
     width: calc(100% - 300px);
   }
-}
-@media (min-width: 576px) {
+
   .login-container {
     width: 576px;
-    background: #eeeeee;
   }
-
+}
+@media (min-width: 576px) {
   .signup-alert {
     width: 576px;
   }
@@ -323,10 +345,6 @@ footer {
   }
 }
 @media (max-width: 575px) {
-  .login-container {
-    width: 100%;
-  }
-
   .signup-alert {
     width: 100%;
   }
@@ -340,10 +358,6 @@ footer {
   }
 }
 #signup-header {
-  text-align: center;
-}
-
-#login-header {
   text-align: center;
 }
 
