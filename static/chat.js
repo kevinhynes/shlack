@@ -4,9 +4,8 @@ $(document).ready(function() {
 
     // Resizing Messages
     const mql = window.matchMedia('(max-width: 767px)')
-    resizeMessages(mql)
     mql.addEventListener('change', resizeMessages)
-
+    resizeMessages(mql)
 })
 
 

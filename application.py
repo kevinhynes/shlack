@@ -4,6 +4,7 @@ from flask_socketio import SocketIO, emit
 from config import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+import functools
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -15,14 +16,22 @@ migrate = Migrate(app, db)
 from models import User, Post
 from forms import LoginForm
 
-# frank = User(username='Frankenstein', email="bigfrank@hotmal.com", password_hash='123')
-# print(frank, flush=True)
+
+# @app.route("/old")
+# def old():
+#     logged_in = session.get('logged_in', False)
+#     return render_template("old_layout.html", logged_in=logged_in)
 
 
-@app.route("/old")
-def old():
-    logged_in = session.get('logged_in', False)
-    return render_template("old_layout.html", logged_in=logged_in)
+def login_required(route_func):
+    @functools.wraps(route_func)  # returns wrapper as route_func (?).
+    def wrapper(*args, **kwargs):
+        if "logged_in" in session:
+            return route_func(*args, **kwargs)
+        else:
+            flash("You must log in to use GoodBookBadBook.", category="error")
+            return redirect(url_for('login'))
+    return wrapper
 
 
 @app.route("/ensureLogIn")
@@ -43,13 +52,13 @@ def index():
         flash('Login successful for user {}, remember_me={}'.format(
             form.username.data, form.remember_me.data))
         session["logged_in"] = True
-        print("logged in???", flush=True)
         return redirect('/chat')
     logged_in = session.get('logged_in', False)
     return render_template("home.html", title="Home", form=form, logged_in=logged_in)
 
 
 @app.route("/chat")
+@login_required
 def chat():
     form = LoginForm()
     logged_in = session.get('logged_in', False)
@@ -70,8 +79,5 @@ def login():
 
 @app.route("/logout")
 def logout():
-    form = LoginForm()
-    session.pop('logged_in')
-    logged_in = session.get('logged_in', False)
-    return redirect("/")
-    # return render_template("home.html", title="Home", form=form, logged_in=logged_in)
+    session.pop("logged_in")
+    return redirect(url_for("index"))
