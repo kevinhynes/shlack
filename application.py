@@ -14,7 +14,7 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 from models import User, Post
-from forms import LoginForm
+from forms import LoginForm, SignUpForm
 
 
 # @app.route("/old")
@@ -47,12 +47,14 @@ def is_user_logged_in():
 
 @app.route("/", methods=["GET", "POST"])
 def index():
+    if "logged_in" in session:
+        return redirect("/chat")
     form = LoginForm()
     if form.validate_on_submit():
         flash('Login successful for user {}, remember_me={}'.format(
             form.username.data, form.remember_me.data))
         session["logged_in"] = True
-        return redirect('/chat')
+        return redirect("/chat")
     logged_in = session.get('logged_in', False)
     return render_template("home.html", title="Home", form=form, logged_in=logged_in)
 
@@ -70,11 +72,18 @@ def chat():
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        flash('Login successful for user {}, remember_me={}'.format(
-            form.username.data, form.remember_me.data))
         session["logged_in"] = True
         return redirect("/chat")
-    return render_template("login.html", title="Sign In", form=form)
+    return render_template("login.html", title="Log In", form=form)
+
+
+@app.route("/signup", methods=["GET", "POST"])
+def signup():
+    form = SignUpForm()
+    if form.validate_on_submit():
+        # session["logged_in"] = True
+        return redirect("/login")
+    return render_template("signup.html", title="Sign Up", form=form)
 
 
 @app.route("/logout")

@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block scripts %}
+{% endblock %}
+
+
+{% block body %}
+<div class="container-fluid login-page">
+  <div id="signup-container" class="login-container">
+    <h3 id="signup-header" class="text-center"></h3>
+
+    <form method="post" novalidate>
+      {{ form.hidden_tag() }}
+      <p>
+        {% if form.username.errors %}
+          {{ form.username.label(class_="control-label") }}
+          {{ form.username(class_="form-control is-invalid", placeholder="Enter username") }}
+          {% for error in form.username.errors %}
+            <span class="invalid-feedback"> {{ error }} </span>
+          {% endfor %}
+        {% else %}
+          {{ form.username.label(class_="control-label") }}<br>
+          {{ form.username(class_="form-control", placeholder="Enter username") }}
+        {%  endif %}
+      </p>
+      <p>
+        {% if form.password.errors %}
+          {{ form.password.label(class_="control-label") }}
+          {{ form.password(class_="form-control is-invalid", placeholder="Enter password") }}
+          {% for error in form.password.errors %}
+            <span class="invalid-feedback"> {{ error }} </span>
+          {% endfor %}
+        {% else %}
+          {{ form.password.label(class_="control-label") }}<br>
+          {{ form.password(class_="form-control", placeholder="Enter password") }}
+        {%  endif %}
+      </p>
+      <p>
+        {% if form.password_repeat.errors %}
+          {{ form.password_repeat.label(class_="control-label") }}
+          {{ form.password_repeat(class_="form-control is-invalid", placeholder="Repeat password") }}
+          {% for error in form.password_repeat.errors %}
+            <span class="invalid-feedback"> {{ error }} </span>
+          {% endfor %}
+        {% else %}
+          {{ form.password_repeat.label(class_="control-label") }}<br>
+          {{ form.password_repeat(class_="form-control", placeholder="Repeat password") }}
+        {%  endif %}
+      </p>
+      <p>{{ form.submit(class_="btn btn-primary") }}</p>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+
+
