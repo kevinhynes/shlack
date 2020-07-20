@@ -73,4 +73,5 @@ def logout():
     form = LoginForm()
     session.pop('logged_in')
     logged_in = session.get('logged_in', False)
-    return render_template("home.html", title="Home", form=form, logged_in=logged_in)
+    return redirect("/")
+    # return render_template("home.html", title="Home", form=form, logged_in=logged_in)
