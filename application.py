@@ -79,11 +79,31 @@ def login():
 
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
+    logged_in = session.get('logged_in', False)
+    if logged_in:
+        return redirect("/chat")
     form = SignUpForm()
     if form.validate_on_submit():
-        # session["logged_in"] = True
+        user = User(username=form.username.data, email=form.email.data)
+        user.set_password(form.password.data)
+        db.session.add(user)
+        db.session.commit()
         return redirect("/login")
     return render_template("signup.html", title="Sign Up", form=form)
+
+
+# def register():
+#     if current_user.is_authenticated:
+#         return redirect(url_for('index'))
+#     form = RegistrationForm()
+#     if form.validate_on_submit():
+#         user = User(username=form.username.data, email=form.email.data)
+#         user.set_password(form.password.data)
+#         db.session.add(user)
+#         db.session.commit()
+#         flash('Congratulations, you are now a registered user!')
+#         return redirect(url_for('login'))
+#     return render_template('register.html', title='Register', form=form)
 
 
 @app.route("/logout")
