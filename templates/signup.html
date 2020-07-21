@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 
 {% block scripts %}
+{#    <script src="{{url_for('static', filename='signup.js')}}"></script>#}
 {% endblock %}
 
 
@@ -12,7 +13,7 @@
     <form method="post" novalidate>
       {{ form.hidden_tag() }}
       <span>
-        <img src="{{ url_for('static', filename='images/monsters/monster-24.svg') }}" style="width: 100px;">
+        <img id="selected-avatar" src="{{ url_for('static', filename='images/monsters/monster-24.svg') }}" style="width: 100px;">
           <button type="button" class="btn btn-primary mx-auto" data-toggle="modal" data-target="#avatarModal">
             Choose Avatar
           </button>
@@ -83,15 +84,10 @@
         </button>
       </div>
 
-      <div class="modal-body">
-        <div class="container-fluid avatar-container">
-          <div class="row">
-          {% for monster_file in monster_files %}
-            <img src={{ monster_file }} style="width: 100px;">
-          {% endfor %}
-          </div>
-
-        </div>
+      <div class="modal-body avatar-container">
+        {% for monster_file in monster_files %}
+          <img class="avatar-img" src={{ monster_file }}>
+        {% endfor %}
       </div>
 
       <div class="modal-footer">
@@ -104,6 +100,7 @@
 
 <!-- End Avatar Modal -->
 
+<script src="{{url_for('static', filename='signup.js')}}"></script>
 
 {% endblock %}
 

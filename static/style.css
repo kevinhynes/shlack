@@ -271,6 +271,20 @@ body, html {
   text-align: center;
 }
 
+.avatar-container {
+  background: #eeeeee;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: flex-start;
+}
+.avatar-container img {
+  width: 75px;
+  padding: 10px;
+}
+
 footer {
   background: #f5f5f5;
   margin: 0px -15px;
