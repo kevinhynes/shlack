@@ -11,6 +11,12 @@
 
     <form method="post" novalidate>
       {{ form.hidden_tag() }}
+      <span>
+        <img src="{{ url_for('static', filename='images/monsters/monster-24.svg') }}" style="width: 100px;">
+          <button type="button" class="btn btn-primary mx-auto" data-toggle="modal" data-target="#avatarModal">
+            Choose Avatar
+          </button>
+      </span>
       <p>
         {% if form.username.errors %}
           {{ form.username.label(class_="control-label") }}
@@ -63,7 +69,44 @@
     </form>
   </div>
 </div>
+
+
+
+<!-- Avatar Modal -->
+<div class="modal fade" id="avatarModal" tabindex="-1" role="dialog" aria-labelledby="avatarModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="avatarModalLabel">Choose avatar</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="container-fluid avatar-container">
+          <div class="row">
+          {% for monster_file in monster_files %}
+            <img src={{ monster_file }} style="width: 100px;">
+          {% endfor %}
+          </div>
+
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End Avatar Modal -->
+
+
 {% endblock %}
+
 
 
 

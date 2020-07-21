@@ -265,12 +265,13 @@ body,html {
   display: block;
   position: absolute;  //Not sure why #login-page is not at top
   top: 0;
+  flex-shrink: 1;
 }
 
 .login-container {
   display: block;
   background: $off_white;
-  height: 400px;
+  //height: 400px;
   width: 400px;
   margin: 150px auto 0px;  //top right&left bottom
   padding: 20px;

@@ -4,11 +4,17 @@ from wtforms.validators import DataRequired, EqualTo, Email, ValidationError
 
 from models import User
 
+
 class LoginForm(FlaskForm):
     username = StringField("Username", validators=[DataRequired()])
     password = PasswordField("Password", validators=[DataRequired()])
     remember_me = BooleanField("Remember Me")
     submit = SubmitField("Log In")
+
+    def validate_username(self, username):
+        user = User.query.filter_by(username=username.data).first()
+        if user is None:
+            raise ValidationError('Username not found.')
 
 
 class SignUpForm(FlaskForm):

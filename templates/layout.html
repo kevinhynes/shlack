@@ -36,12 +36,6 @@
         <li class="nav-item">
           <a class="nav-link nav-fill" href="{{ url_for("signup") }}">Sign Up</a>
         </li>
-        <li class="nav-item">
-          <!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            Launch demo modal
-          </button>
-        </li>
       {% else %}
         <li class="nav-item ml-auto">
           <div class="usercard d-flex flex-row no-gutters">
@@ -50,10 +44,9 @@
               <p class="text-center text-white my-0">{{ current_user.username }}</p>
               <hr class="my-0">
 {#              <p class="text-center text-white my-0"><small>Subtext</small></p>#}
-{#              <span><img src="./static/images/specials/006-flask.svg" style="width: 25px"></span>#}
-{#              <span><img src="./static/images/specials/009-cauldron.svg" style="width: 25px"></span>#}
-
-            </div>
+{#              <span><img src="./static/images/specials/006-flask.svg" style="width: 20px"></span>#}
+{#              <span><img src="./static/images/specials/009-cauldron.svg" style="width: 20px"></span/>#}
+              </div>
           </div>
         </li>
         <li class="nav-item pl-0">

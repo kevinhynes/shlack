@@ -256,12 +256,12 @@ body, html {
   display: block;
   position: absolute;
   top: 0;
+  flex-shrink: 1;
 }
 
 .login-container {
   display: block;
   background: #eeeeee;
-  height: 400px;
   width: 400px;
   margin: 150px auto 0px;
   padding: 20px;

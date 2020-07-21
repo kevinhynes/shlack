@@ -6,6 +6,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager, login_required, login_user, logout_user, current_user
 from werkzeug.urls import url_parse
+import os
+
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -65,7 +67,7 @@ def login():
         login_user(user, remember=form.remember_me.data)
         next_page = request.args.get("next")
         if not next_page or url_parse(next_page).netloc != '':
-            next_page = url_for("index")
+            next_page = url_for("chat")
         return redirect(next_page)
     return render_template("login.html", title="Log In", form=form)
 
@@ -82,7 +84,9 @@ def signup():
         db.session.add(user)
         db.session.commit()
         return redirect("/login")
-    return render_template("signup.html", title="Sign Up", form=form)
+    monster_files = ["./static/images/monsters/" + filename for filename in os.listdir('static/images/monsters')]
+    print(monster_files, flush=True)
+    return render_template("signup.html", title="Sign Up", form=form, monster_files=monster_files)
 
 
 @app.route("/logout")
