@@ -34,22 +34,25 @@ def is_user_logged_in():
     return jsonify(response)
 
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/")
+@app.route("/index")
 def index():
-    form = LoginForm()
-    if form.validate_on_submit():
-        flash('Login successful for user {}, remember_me={}'.format(
-            form.username.data, form.remember_me.data))
-        session["logged_in"] = True
-        return redirect("/chat")
-    return render_template("home.html", title="Home", form=form)
+    return render_template("home.html", title="Home")
 
 
-@app.route("/chat")
+@app.route("/channels")
 @login_required
-def chat():
+def channels():
+    return redirect(url_for("channel", channel="general"))
+
+
+@app.route("/channels/<string:channel>")
+@login_required  # calls wrapper() with arguments to books().
+def channel(channel):
+    # results = db.execute("SELECT * FROM Channels WHERE Author IN (:channel) ORDER BY Title ASC",
+    #                    {"channel": channel}).fetchall()
     form = LoginForm()
-    return render_template("chat.html", title="Chat", form=form)
+    return render_template("channel.html", form=form)
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -65,7 +68,7 @@ def login():
         login_user(user, remember=form.remember_me.data)
         next_page = request.args.get("next")
         if not next_page or url_parse(next_page).netloc != '':
-            next_page = url_for("chat")
+            next_page = url_for("channels")
         return redirect(next_page)
     return render_template("login.html", title="Log In", form=form)
 
@@ -76,15 +79,13 @@ def signup():
         return redirect(url_for("index"))
     form = SignUpForm()
     if form.validate_on_submit():
-        print("form.avatar.data", flush=True)
-        filepath = form.avatar.data.replace("http://127.0.0.1:5000", ".")
+        filepath = form.avatar.data.replace("http://127.0.0.1:5000", "")
         user = User(avatar=filepath, username=form.username.data, email=form.email.data)
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
         return redirect("/login")
-    # print(form.__dict__.items(), flush=True)
-    monster_files = ["./static/images/monsters/" + filename for filename in os.listdir('static/images/monsters')]
+    monster_files = ["./static/images/monsters/" + filename for filename in os.listdir("static/images/monsters")]
     return render_template("signup.html", title="Sign Up", form=form, monster_files=monster_files)
 
 

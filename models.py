@@ -4,6 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
 
+# Needed for flask_login to work...
 @login.user_loader
 def load_user(id_):
     return User.query.get(int(id_))
@@ -11,10 +12,11 @@ def load_user(id_):
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    avatar = db.Column(db.String(64))
     username = db.Column(db.String(64), index=True, unique=True)
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
-    posts = db.relationship('Post', backref='author', lazy='dynamic')
+    posts = db.relationship("Post", backref="author", lazy="dynamic")
 
     def __repr__(self):
         return f'User {self.username}'
@@ -31,8 +33,18 @@ class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.String(300))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+    channel_id = db.Column(db.Integer, db.ForeignKey("channel.id"))
 
     def __repr__(self):
         return f'Post {self.post}'
+
+
+class Channel(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(300))
+    posts = db.relationship("Post", backref="channel", lazy="dynamic")
+
+    def __repr__(self):
+        return f"Channel {self.channel_name}"
 
