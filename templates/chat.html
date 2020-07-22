@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block scripts %}
-    <script src="{{url_for('static', filename='chat.js')}}" defer></script>
+    <script src="{{url_for('static', filename='chat.js')}}"></script>
 {% endblock %}
 
 {%  block body %}
@@ -165,73 +165,6 @@
           <p>{{ form.submit() }}</p>
         </form>
       </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-<!-- Sign In Modal -->
-<div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="signInModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="signInModalLabel">Welcome to Shlack</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-
-        <!-- Nav -->
-        <ul class="nav nav-tabs nav-fill">
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Sign In</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Register</a>
-          </li>
-        </ul>
-        <!-- End Nav -->
-
-
-        <div class="container login-container">
-          <form method="post" novalidate>
-            {{ form.hidden_tag() }}
-            <p>
-              {% if form.username.errors %}
-                {{ form.username.label(class_="control-label") }}
-                {{ form.username(class_="form-control is-invalid", placeholder="Enter USERNAME") }}
-                {% for error in form.username.errors %}
-                  <span class="invalid-feedback"> {{ error }} </span>
-                {% endfor %}
-              {% else %}
-                {{ form.username.label(class_="control-label") }}<br>
-                {{ form.username(class_="form-control", placeholder="Enter USERNAME") }}
-              {%  endif %}
-            </p>
-            <p>
-              {% if form.password.errors %}
-                {{ form.password.label(class_="control-label") }}
-                {{ form.password(class_="form-control is-invalid", placeholder="Enter PASSWORD") }}
-                {% for error in form.password.errors %}
-                  <span class="invalid-feedback"> {{ error }} </span>
-                {% endfor %}
-              {% else %}
-                {{ form.password.label(class_="control-label") }}<br>
-                {{ form.password(class_="form-control", placeholder="Enter PASSWORD") }}
-              {%  endif %}
-            </p>
-            <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
-            <p>{{ form.submit(class_="btn btn-primary") }}</p>
-          </form>
-        </div>
-
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

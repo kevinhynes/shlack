@@ -39,7 +39,7 @@
       {% else %}
         <li class="nav-item ml-auto">
           <div class="usercard d-flex flex-row no-gutters">
-              <img src="./static/images/monsters/monster-34.svg"/>
+              <img src={{ current_user.avatar }}/>
             <div class="col">
               <p class="text-center text-white my-0">{{ current_user.username }}</p>
               <hr class="my-0">

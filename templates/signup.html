@@ -10,14 +10,28 @@
   <div id="signup-container" class="login-container">
     <h3 id="signup-header" class="text-center"></h3>
 
-    <form method="post" novalidate>
+    <form id="registration-form" method="post" novalidate>
       {{ form.hidden_tag() }}
-      <span>
-        <img id="selected-avatar" src="{{ url_for('static', filename='images/monsters/monster-24.svg') }}" style="width: 100px;">
-          <button type="button" class="btn btn-primary mx-auto" data-toggle="modal" data-target="#avatarModal">
-            Choose Avatar
-          </button>
-      </span>
+      {% for err in form.errors %}
+        <p>{{ err }}</p>
+      {% endfor %}
+      <p>
+
+        {% if form.avatar.errors %}
+{#          {{ form.avatar.label(class_="control-label") }}#}
+          {{ form.avatar(class_="form-control is-invalid d-none", placeholder="avatar") }}
+          {% for error in form.avatar.errors %}
+            <span class="invalid-feedback"> {{ error }} </span>
+          {% endfor %}
+        {% else %}
+{#          {{ form.avatar.label(class_="control-label") }}<br>#}
+          {{ form.avatar(class_="form-control d-none", placeholder="avatar") }}
+        {%  endif %}
+        <img id="selected-avatar" src={{ url_for("static", filename="images/monsters/monster-1.svg") }} style="width: 100px;">
+        <button type="button" class="btn btn-primary ml-4" data-toggle="modal" data-target="#avatarModal">
+          Choose Avatar
+        </button>
+      </p>
       <p>
         {% if form.username.errors %}
           {{ form.username.label(class_="control-label") }}
@@ -90,10 +104,10 @@
         {% endfor %}
       </div>
 
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+{#      <div class="modal-footer">#}
+{#        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>#}
+{#        <button type="button" class="btn btn-primary">Save changes</button>#}
+{#      </div>#}
     </div>
   </div>
 </div>

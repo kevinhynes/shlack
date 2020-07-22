@@ -42,16 +42,14 @@ def index():
             form.username.data, form.remember_me.data))
         session["logged_in"] = True
         return redirect("/chat")
-    logged_in = session.get('logged_in', False)
-    return render_template("home.html", title="Home", form=form, logged_in=logged_in)
+    return render_template("home.html", title="Home", form=form)
 
 
 @app.route("/chat")
 @login_required
 def chat():
     form = LoginForm()
-    logged_in = session.get('logged_in', False)
-    return render_template("chat.html", title="Chat", form=form, logged_in=logged_in)
+    return render_template("chat.html", title="Chat", form=form)
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -74,18 +72,19 @@ def login():
 
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
-    logged_in = session.get('logged_in', False)
-    if logged_in:
-        return redirect("/chat")
+    if current_user.is_authenticated:
+        return redirect(url_for("index"))
     form = SignUpForm()
     if form.validate_on_submit():
-        user = User(username=form.username.data, email=form.email.data)
+        print("form.avatar.data", flush=True)
+        filepath = form.avatar.data.replace("http://127.0.0.1:5000", ".")
+        user = User(avatar=filepath, username=form.username.data, email=form.email.data)
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
         return redirect("/login")
+    # print(form.__dict__.items(), flush=True)
     monster_files = ["./static/images/monsters/" + filename for filename in os.listdir('static/images/monsters')]
-    print(monster_files, flush=True)
     return render_template("signup.html", title="Sign Up", form=form, monster_files=monster_files)
 
 

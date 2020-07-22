@@ -18,6 +18,7 @@ class LoginForm(FlaskForm):
 
 
 class SignUpForm(FlaskForm):
+    avatar = StringField("Avatar", validators=[DataRequired()])
     username = StringField("Username", validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField("Password", validators=[DataRequired()])
@@ -29,6 +30,8 @@ class SignUpForm(FlaskForm):
         user = User.query.filter_by(username=username.data).first()
         if user is not None:
             raise ValidationError('Please use a different username.')
+        if not 8 <= len(username.data) <= 24:
+            raise ValidationError("Username must be between 8 and 24 characters.")
 
     def validate_email(self, email):
         user = User.query.filter_by(email=email.data).first()
