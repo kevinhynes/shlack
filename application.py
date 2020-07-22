@@ -18,6 +18,13 @@ migrate = Migrate(app, db)
 login = LoginManager(app)
 login.login_view = 'login'
 
+# Need render_as_batch for sqlite3, or else database migrations with ALTER will fail.
+with app.app_context():
+    if db.engine.url.drivername == 'sqlite':
+        migrate.init_app(app, db, render_as_batch=True)
+    else:
+        migrate.init_app(app, db)
+
 
 from models import User, Post
 from forms import LoginForm, SignUpForm
