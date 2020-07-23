@@ -46,5 +46,5 @@ class Channel(db.Model):
     posts = db.relationship("Post", backref="channel", lazy="dynamic")
 
     def __repr__(self):
-        return f"Channel {self.channel_name}"
+        return f"Channel {self.name}"
 

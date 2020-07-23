@@ -27,7 +27,7 @@ with app.app_context():
 
 
 from models import User, Post
-from forms import LoginForm, SignUpForm
+from forms import LoginForm, SignUpForm, NewChannelForm
 
 
 @app.route("/ensureLogIn")
@@ -53,12 +53,20 @@ def channels():
     return redirect(url_for("channel", channel="general"))
 
 
-@app.route("/channels/<string:channel>")
+@app.route("/channels/<string:channel>", methods=["GET", "POST"])
 @login_required  # calls wrapper() with arguments to books().
 def channel(channel):
     # results = db.execute("SELECT * FROM Channels WHERE Author IN (:channel) ORDER BY Title ASC",
     #                    {"channel": channel}).fetchall()
-    form = LoginForm()
+
+    form = NewChannelForm()
+    if request.method == "POST":
+        if form.validate_on_submit():
+            print("NewChannelForm submission validated", flush=True)
+            print("Enter into database", flush=True)
+    else:
+        print("NewChannelForm GET or submission invalid", flush=True)
+
     return render_template("channel.html", form=form)
 
 

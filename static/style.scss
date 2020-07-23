@@ -27,7 +27,7 @@ body,html {
   //overflow: hidden;
 }
 
-/*Navbar*/
+//Navbar
 #navbar {
   background: $purple1;
   border: 1px solid black;
@@ -43,7 +43,6 @@ body,html {
 //.navbar-icon {
 //  align-items:center;
 //}
-
 .navbar-list .navbar-brand,
 .navbar-list .nav-link {
   color: $white;
@@ -64,7 +63,7 @@ body,html {
   height: 50px;
 }
 
-/*Sidebar*/
+//Sidebar
 .sidebar {
   overflow: auto;
   background-color: $purple3;
@@ -74,101 +73,107 @@ body,html {
   width: 300px;
   height: 100%;
   color: #e1ffff;
-}
-.sidebar .header {
-  background-color: $purple2;
-  border-bottom: 1px solid $darkergray;
-  line-height: 50px;
-  display: block;
-  text-align: center;
-}
-.sidebar .toggle-btn {
-  display: none;
-}
-.sidebar ul,
-.sidebar li {
-  list-style: none;
-  padding: 0px;
-  margin: 0px;
-  line-height: 35px;
-  cursor: pointer;
-}
-.sidebar ul :not(collapsed) .arrow:before,
-.sidebar li :not(collapsed) .arrow:before {
-  font-family: FontAwesome;
-  content: "\f078";
-  display: inline-block;
-  padding-left: 10px;
-  padding-right: 10px;
-  vertical-align: middle;
-  float: right;
-}
-.sidebar ul .active,
-.sidebar li .active {
-  border-left: 3px solid #d19b3d;
-  background-color: #4f5b69;
-}
-.sidebar ul .sub-menu li.active,
-.sidebar li .sub-menu li.active {
-  color: #d19b3d;
-}
-.sidebar ul .sub-menu li.active a,
-.sidebar li .sub-menu li.active a {
-  color: #d19b3d;
-}
-.sidebar ul .sub-menu li,
-.sidebar li .sub-menu li {
-  background-color: #181c20;
-  border: none;
-  line-height: 28px;
-  border-bottom: 1px solid #23282e;
-  margin-left: 0px;
-}
-.sidebar ul .sub-menu li:hover,
-.sidebar li .sub-menu li:hover {
-  background-color: #020203;
-}
-.sidebar ul .sub-menu li:before,
-.sidebar li .sub-menu li:before {
-  font-family: FontAwesome;
-  content: "\f105";
-  display: inline-block;
-  padding-left: 10px;
-  padding-right: 10px;
-  vertical-align: middle;
-}
-.sidebar li {
-  padding-left: 0px;
-  border-left: 3px solid #2e353d;
-  border-bottom: 1px solid $darkergray;
-}
-.sidebar li a {
-  text-decoration: none;
-  color: #e1ffff;
-  padding-left: 10px;
-}
-.sidebar li a i {
-  padding-left: 10px;
-  width: 20px;
-  padding-right: 20px;
-}
-.sidebar li:hover {
-  border-left: 3px solid #d19b3d;
-  background-color: $purple4;
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  -ms-transition: all 1s ease;
-  transition: all 1s ease;
+  .menu-content {
+    padding: 0px;
+  }
+  .header {
+    background-color: $purple2;
+    border-bottom: 1px solid $darkergray;
+    line-height: 40px;
+    display: block;
+    text-align: center;
+  }
+  .toggle-btn {
+    display: none;
+  }
+  .add-channel {
+    border-style: none;
+  }
+  .channel {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    line-height: 35px;
+    cursor: pointer;
+  }
+  .channel .active {
+    border-left: 3px solid #d19b3d;
+    background-color: #4f5b69;
+  }
+  .channel {
+    padding-left: 0px;
+    border-left: 3px solid #2e353d;
+    border-bottom: 1px solid $darkergray;
+  }
+  .channel a {
+    text-decoration: none;
+    color: #e1ffff;
+    padding-left: 10px;
+  }
+  .channel a i {
+    padding-left: 10px;
+    width: 20px;
+    padding-right: 20px;
+  }
+  .channel:hover {
+    border-left: 3px solid #d19b3d;
+    background-color: $purple4;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+  }
 }
 
-/*Right Column*/
+
+//.sidebar ul :not(collapsed) .arrow:before,
+//.sidebar li :not(collapsed) .arrow:before {
+//  font-family: FontAwesome;
+//  content: "\f078";
+//  display: inline-block;
+//  padding-left: 10px;
+//  padding-right: 10px;
+//  vertical-align: middle;
+//  float: right;
+//}
+//
+//.sidebar ul .sub-menu li.active,
+//.sidebar li .sub-menu li.active {
+//  color: #d19b3d;
+//}
+//.sidebar ul .sub-menu li.active a,
+//.sidebar li .sub-menu li.active a {
+//  color: #d19b3d;
+//}
+//.sidebar ul .sub-menu li,
+//.sidebar li .sub-menu li {
+//  background-color: #181c20;
+//  border: none;
+//  line-height: 28px;
+//  border-bottom: 1px solid #23282e;
+//  margin-left: 0px;
+//}
+//.sidebar ul .sub-menu li:hover,
+//.sidebar li .sub-menu li:hover {
+//  background-color: #020203;
+//}
+//.sidebar ul .sub-menu li:before,
+//.sidebar li .sub-menu li:before {
+//  font-family: FontAwesome;
+//  content: "\f105";
+//  display: inline-block;
+//  padding-left: 10px;
+//  padding-right: 10px;
+//  vertical-align: middle;
+//}
+
+
+//Messages Column
 #main {
   overflow: auto;
   //background: $peach;
   background: $lightergray;
-
-
 }
 #message-box {
   position: fixed;
@@ -176,8 +181,14 @@ body,html {
   background: $off_white;
 }
 
+//New channel modal
+.new-channel-container {
+  width: 100%;
+  background: $lightergray;
+}
 
-//Chats
+
+//Home Page
 .media {
   display: flex;
   flex-direction: row;
@@ -259,6 +270,10 @@ body,html {
   }
 }
 
+footer {
+  background: $lightergray;
+  margin: 0px -15px;
+}
 
 //Login Page
 .login-page {
@@ -281,6 +296,8 @@ body,html {
   text-align: center;
 }
 
+
+//Signup Page
 .avatar-container {
   background: $off_white;
   width: 100%;
@@ -300,10 +317,7 @@ body,html {
 }
 
 
-footer {
-  background: $lightergray;
-  margin: 0px -15px;
-}
+
 
 /*When screen width is below 767 pixels*/
 @media (max-width: 767px) {

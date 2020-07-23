@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField
 from wtforms.validators import DataRequired, EqualTo, Email, ValidationError
 
-from models import User
+from models import User, Channel
 
 
 class LoginForm(FlaskForm):
@@ -37,3 +37,17 @@ class SignUpForm(FlaskForm):
         user = User.query.filter_by(email=email.data).first()
         if user is not None:
             raise ValidationError('Please use a different email address.')
+
+
+class NewChannelForm(FlaskForm):
+    new_channel = StringField("Channel", validators=[DataRequired()])
+    submit = SubmitField("Create")
+
+    def validate_new_channel(self, new_channel):
+        channel = Channel.query.filter_by(name=new_channel.data).first()
+        if channel is not None:
+            raise ValidationError("Channel with that name already exists.")
+        if not 3 <= len(new_channel.data) <= 24:
+            raise ValidationError("Channel name must be between 3 and 24 characters.")
+        if not all(char.isalnum() for char in new_channel.data):
+            raise ValidationError("Channel name can only contain letters and numbers.")
