@@ -2,10 +2,14 @@ $(document).ready(function() {
 
     // ensureLogIn()
 
-    // Resizing Messages
-    const mql = window.matchMedia('(max-width: 767px)')
-    mql.addEventListener('change', resizeMessages)
-    resizeMessages(mql)
+    // // Resizing Messages
+    // const mql = window.matchMedia('(max-width: 767px)')
+    // mql.addEventListener('change', resizeMessages)
+    // resizeMessages(mql)
+
+    window.onresize = onResizeMessages
+    onResizeMessages()
+
 })
 
 
@@ -27,6 +31,30 @@ function ensureLogIn() {
     xhr.send()
 }
 
+
+function onResizeMessages() {
+    const navbar = document.getElementById('navbar')
+    const sidebar = document.getElementById('sidebar')
+    const main = document.getElementById('main')
+    const messageBox = document.getElementById('message-box')
+    if (window.innerWidth < 767) {
+        // Width is smaller than 767px
+        sidebar.style.height = 'auto'
+
+        const main_height = messageBox.offsetTop - sidebar.offsetTop - sidebar.offsetHeight
+        main.style.height = main_height + 'px'
+        console.log(`smaller than 767 - main_height ${main_height}`)
+
+    } else {
+        // Width is greater than 767px
+        const main_height = messageBox.offsetTop - navbar.offsetHeight
+        const sidebar_height = window.innerHeight - navbar.offsetHeight
+        main.style.height = main_height + 'px'
+        sidebar.style.height = sidebar_height + 'px'
+        console.log(`larger than 767 - main_height ${main_height}`)
+
+    }
+}
 
 
 function resizeMessages(mql) {
