@@ -40,14 +40,14 @@ class SignUpForm(FlaskForm):
 
 
 class NewChannelForm(FlaskForm):
-    new_channel = StringField("Channel", validators=[DataRequired()])
+    channel_name = StringField("Channel", validators=[DataRequired()])
     submit = SubmitField("Create")
 
-    def validate_new_channel(self, new_channel):
-        channel = Channel.query.filter_by(name=new_channel.data).first()
+    def validate_channel_name(self, channel_name):
+        channel = Channel.query.filter_by(name=channel_name.data).first()
         if channel is not None:
             raise ValidationError("Channel with that name already exists.")
-        if not 3 <= len(new_channel.data) <= 24:
+        if not 3 <= len(channel_name.data) <= 24:
             raise ValidationError("Channel name must be between 3 and 24 characters.")
-        if not all(char.isalnum() for char in new_channel.data):
+        if not all(char.isalnum() for char in channel_name.data):
             raise ValidationError("Channel name can only contain letters and numbers.")

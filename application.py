@@ -56,9 +56,9 @@ def channels():
 @app.route("/channels/<string:channel_name>", methods=["GET", "POST"])
 @login_required
 def channel(channel_name):
-    form = NewChannelForm()
+    new_channel_form = NewChannelForm()
     if request.method == "POST":
-        if form.validate_on_submit():
+        if new_channel_form.validate_on_submit():
             print("NewChannelForm submission validated", flush=True)
             print("Entering into database", flush=True)
             channel = Channel(name=channel_name)
@@ -70,7 +70,7 @@ def channel(channel_name):
     channels = Channel.query.all()
     if not any(channel_name == channel.name for channel in channels):
         return redirect(url_for("channels"))
-    return render_template("channel.html", form=form, channels=channels)
+    return render_template("channel.html", new_channel_form=new_channel_form, channels=channels)
 
 
 @app.route("/login", methods=["GET", "POST"])

@@ -5,141 +5,191 @@
 {% endblock %}
 
 {% block scripts %}
-    <script src="{{url_for('static', filename='channel.js')}}"></script>
-    <script>
+  <script src="{{ url_for('static', filename='channel.js') }}"></script>
+  <script>
 
-    </script>
+  </script>
 {% endblock %}
 
-{%  block body %}
-<div id="sidebar" class="sidebar container-fluid">
-  <div class="row">
-    <div class="col">
+{% block body %}
+  <div id="sidebar" class="sidebar container-fluid">
+    <div class="row">
+      <div class="col">
 
+      </div>
+    </div>
+
+    <div class="header">Channels</div>
+    <span class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></span>
+    <div class="menu-list">
+      <ul id="menu-content" class="menu-content collapse">
+        <li class="add-channel justify-content-center d-flex">
+          <button class="btn btn-secondary " data-target="#channel-modal" data-toggle="modal"> Add Channel <i
+              class="fa fa-plus"></i></button>
+        </li>
+
+        {% for channel in channels %}
+          <li class="channel">
+            <a href={{ url_for('channel', channel_name=channel.name) }}># {{ channel.name }} <span class="arrow"></span></a>
+          </li>
+        {% endfor %}
+
+      </ul>
     </div>
   </div>
 
-  <div class="header">Channels</div>
-  <span class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></span>
-  <div class="menu-list">
-    <ul id="menu-content" class="menu-content collapse">
-      <li class="add-channel justify-content-center d-flex">
-        <button class="btn btn-secondary " data-target="#channel-modal" data-toggle="modal" > Add Channel <i class="fa fa-plus"></i></button>
-      </li>
 
-      {% for channel in channels %}
-      <li class="channel">
-        <a href={{ url_for('channel', channel_name=channel.name) }}># {{ channel.name }} <span class="arrow"></span></a>
-      </li>
-      {% endfor %}
+  <div id="main" class="container-fluid">
+    <div class="row">
+      <div id="messages" class="col-12">
 
-    </ul>
-  </div>
-</div>
+        <!--- Start First Row --->
+        <div class="row" style="background: #f6efe8; height: 100%;">
+
+          <div class="col-12 p-5">
+
+            <div class="media chat">
+              <img src="/static/images/monsters/monster-34.svg" style="height: 100px;"/>
+              <div class="media-body">
+                <p class="timestamp">Gerp 12:09PM</p>
+                <p>You must wait until the being is having night visions!</p>
+              </div>
+            </div>
+
+            <hr>
+            <div class="col-12 p-5">
+
+              <div class="media chat self">
+                <img src="/static/images/monsters/monster-3.svg" style="height: 100px;"/>
+                <div class="media-body">
+                  <p class="timestamp">Zaphod 12:21PM</p>
+                  <p>What if the being's lifegiver checks under the lay-slab?</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+
+          <div class="col-12 p-5">
+
+            <div class="media chat">
+              <img src="/static/images/monsters/monster-34.svg" style="height: 100px;"/>
+              <div class="media-body">
+                <p class="timestamp">Gerp 12:09PM</p>
+                <p>You must wait until the being is having night visions!</p>
+              </div>
+            </div>
+
+            <hr>
+            <div class="col-12 p-5">
+
+              <div class="media chat self">
+                <img src="/static/images/monsters/monster-3.svg" style="height: 100px;"/>
+                <div class="media-body">
+                  <p class="timestamp">Zaphod 12:21PM</p>
+                  <p>What if the being's lifegiver checks under the lay-slab?</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 p-5">
+
+            <div class="media chat">
+              <img src="/static/images/monsters/monster-34.svg" style="height: 100px;"/>
+              <div class="media-body">
+                <p class="timestamp">Gerp 12:09PM</p>
+                <p>You must wait until the being is having night visions!</p>
+              </div>
+            </div>
+
+            <hr>
+            <div class="col-12 p-5">
+
+              <div class="media chat self">
+                <img src="/static/images/monsters/monster-3.svg" style="height: 100px;"/>
+                <div class="media-body">
+                  <p class="timestamp">Zaphod 12:21PM</p>
+                  <p>What if the being's lifegiver checks under the lay-slab?</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 p-5">
+
+            <div class="media chat">
+              <img src="/static/images/monsters/monster-34.svg" style="height: 100px;"/>
+              <div class="media-body">
+                <p class="timestamp">Gerp 12:09PM</p>
+                <p>You must wait until the being is having night visions!</p>
+              </div>
+            </div>
+
+            <hr>
+            <div class="col-12 p-5">
+
+              <div class="media chat self">
+                <img src="/static/images/monsters/monster-3.svg" style="height: 100px;"/>
+                <div class="media-body">
+                  <p class="timestamp">Zaphod 12:21PM</p>
+                  <p>What if the being's lifegiver checks under the lay-slab?</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
 
-<div id="main" class="container-fluid">
-  <div class="row">
-    <div id="messages" class="col-12">
-      <p>Finite but unbounded how far away Vangelis the sky calls to us Orion's sword at the edge of forever. Courage of
-        our questions concept of the number one the ash of stellar alchemy something incredible is waiting to be known
-        intelligent beings rich in mystery? The only home we've ever known paroxysm of global death astonishment
-        astonishment courage of our questions great turbulent clouds. Concept of the number one vastness is bearable
-        only through love hundreds of thousands hearts of the stars hearts of the stars invent the universe and billions
-        upon billions upon billions upon billions upon billions upon billions upon billions.</p>
-      <p>Shores of the cosmic ocean Flatland radio telescope descended from astronomers decipherment muse about.
-        Inconspicuous motes of rock and gas tesseract Jean-François Champollion courage of our questions are creatures
-        of the cosmos the only home we've ever known. Hundreds of thousands the carbon in our apple pies dream of the
-        mind's eye take root and flourish encyclopaedia galactica network of wormholes? Rich in heavy atoms two ghostly
-        white figures in coveralls and helmets are softly dancing hundreds of thousands vanquish the impossible network
-        of wormholes a very small stage in a vast cosmic arena and billions upon billions upon billions upon billions
-        upon billions upon billions upon billions.</p>
-      <p>Invent the universe explorations take root and flourish great turbulent clouds finite but unbounded laws of
-        physics. Citizens of distant epochs vastness is bearable only through love a still more glorious dawn awaits
-        Apollonius of Perga Jean-François Champollion hearts of the stars. Tendrils of gossamer clouds the sky calls to
-        us the only home we've ever known the ash of stellar alchemy not a sunrise but a galaxyrise a very small stage
-        in a vast cosmic arena and billions upon billions upon billions upon billions upon billions upon billions upon
-        billions.</p>
-      <p>Star stuff harvesting star light dispassionate extraterrestrial observer kindling the energy hidden in matter
-        rich in heavy atoms astonishment Euclid. Invent the universe the only home we've ever known shores of the cosmic
-        ocean take root and flourish Orion's sword Apollonius of Perga? A still more glorious dawn awaits dream of the
-        mind's eye realm of the galaxies a very small stage in a vast cosmic arena a very small stage in a vast cosmic
-        arena Orion's sword and billions upon billions upon billions upon billions upon billions upon billions upon
-        billions.</p>
-      <p>Corpus callosum inconspicuous motes of rock and gas rich in mystery bits of moving fluff Cambrian explosion
-        laws of physics. Astonishment hydrogen atoms network of wormholes not a sunrise but a galaxyrise hydrogen atoms
-        vastness is bearable only through love? Made in the interiors of collapsing stars two ghostly white figures in
-        coveralls and helmets are softly dancing finite but unbounded extraordinary claims require extraordinary
-        evidence permanence of the stars finite but unbounded and billions upon billions upon billions upon billions
-        upon billions upon billions upon billions.</p>
-      <p>Finite but unbounded how far away Vangelis the sky calls to us Orion's sword at the edge of forever. Courage of
-        our questions concept of the number one the ash of stellar alchemy something incredible is waiting to be known
-        intelligent beings rich in mystery? The only home we've ever known paroxysm of global death astonishment
-        astonishment courage of our questions great turbulent clouds. Concept of the number one vastness is bearable
-        only through love hundreds of thousands hearts of the stars hearts of the stars invent the universe and billions
-        upon billions upon billions upon billions upon billions upon billions upon billions.</p>
-      <p>Shores of the cosmic ocean Flatland radio telescope descended from astronomers decipherment muse about.
-        Inconspicuous motes of rock and gas tesseract Jean-François Champollion courage of our questions are creatures
-        of the cosmos the only home we've ever known. Hundreds of thousands the carbon in our apple pies dream of the
-        mind's eye take root and flourish encyclopaedia galactica network of wormholes? Rich in heavy atoms two ghostly
-        white figures in coveralls and helmets are softly dancing hundreds of thousands vanquish the impossible network
-        of wormholes a very small stage in a vast cosmic arena and billions upon billions upon billions upon billions
-        upon billions upon billions upon billions.</p>
-      <p>Invent the universe explorations take root and flourish great turbulent clouds finite but unbounded laws of
-        physics. Citizens of distant epochs vastness is bearable only through love a still more glorious dawn awaits
-        Apollonius of Perga Jean-François Champollion hearts of the stars. Tendrils of gossamer clouds the sky calls to
-        us the only home we've ever known the ash of stellar alchemy not a sunrise but a galaxyrise a very small stage
-        in a vast cosmic arena and billions upon billions upon billions upon billions upon billions upon billions upon
-        billions.</p>
+        </div>
+        <!--- End First Row --->
+      </div>
     </div>
-  </div>
 
-  <div id="message-box" class="row">
-    <div class="col-12 message-box py-2">
-      <div class="input-group ">
-        <input type="text" class="form-control" placeholder="Type your message" aria-label="" aria-describedby="">
-        <div class="input-group-append">
-          <button id="send-button" class="btn btn-outline-secondary" type="button">Send</button>
+    <form>
+      <div id="message-box" class="row">
+        <div class="col-12 message-box py-2">
+          <div class="input-group ">
+            <input class="form-control" type="text" placeholder="Type your message" aria-label="" aria-describedby="">
+            <div class="input-group-append">
+              <button id="send-button" class="btn btn-outline-secondary" type="button">Send</button>
+            </div>
+          </div>
         </div>
       </div>
+    </form>
+  </div>
+
+
+  <!-- Add Channel Modal -->
+  <div class="modal fade" id="channel-modal" tabindex="-1" role="dialog" aria-labelledby="channelModalLabel"
+       aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="channelModalLabel">Create a new Shlack channel!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body new-channel-container">
+          <form action="" method="post" novalidate>
+            {{ new_channel_form.hidden_tag() }}
+            <p>
+              {% if new_channel_form.channel_name.errors %}
+                {{ new_channel_form.channel_name(class_="form-control is-invalid", placeholder="Enter new channel name") }}
+                {% for error in new_channel_form.channel_name.errors %}
+                  <span class="invalid-feedback"> {{ error }} </span>
+                {% endfor %}
+              {% else %}
+                {{ new_channel_form.channel_name(class_="form-control", placeholder="Enter new channel name") }}
+              {% endif %}
+            </p>
+            <p>{{ new_channel_form.submit(class_="btn btn-primary") }}</p>
+          </form>
+        </div>
+
+      </div>
     </div>
   </div>
 
-</div>
+  {#<script src="{{url_for('static', filename='chat.js')}}"></script>#}
 
-
-<!-- Add Channel Modal -->
-<div class="modal fade" id="channel-modal" tabindex="-1" role="dialog" aria-labelledby="channelModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="channelModalLabel">Create a new Shlack channel!</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body new-channel-container">
-
-        <form action="" method="post" novalidate>
-          {{ form.hidden_tag() }}
-          <p>
-            {% if form.new_channel.errors %}
-              {{ form.new_channel(class_="form-control is-invalid", placeholder="Enter new channel name") }}
-              {% for error in form.new_channel.errors %}
-                <span class="invalid-feedback"> {{ error }} </span>
-              {% endfor %}
-            {% else %}
-              {{ form.new_channel(class_="form-control", placeholder="Enter new channel name") }}
-            {%  endif %}
-          </p>
-          <p>{{ form.submit(class_="btn btn-primary") }}</p>
-        </form>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-{#<script src="{{url_for('static', filename='chat.js')}}"></script>#}
-
-{%  endblock %}
+{% endblock %}
