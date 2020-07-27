@@ -63,12 +63,14 @@ body, html {
   line-height: 40px;
   display: block;
   text-align: center;
+  font-size: large;
 }
 .sidebar .toggle-btn {
   display: none;
 }
 .sidebar .add-channel {
   border-style: none;
+  border-bottom: 1px solid #403e41;
 }
 .sidebar .channel {
   list-style: none;

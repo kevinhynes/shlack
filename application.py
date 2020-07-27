@@ -26,7 +26,7 @@ with app.app_context():
         migrate.init_app(app, db)
 
 
-from models import User, Post
+from models import User, Post, Channel
 from forms import LoginForm, SignUpForm, NewChannelForm
 
 
@@ -63,11 +63,15 @@ def channel(channel):
     if request.method == "POST":
         if form.validate_on_submit():
             print("NewChannelForm submission validated", flush=True)
-            print("Enter into database", flush=True)
+            print("Entering into database", flush=True)
+            channel = Channel(name=form.new_channel.data)
+            db.session.add(channel)
+            db.session.commit()
     else:
         print("NewChannelForm GET or submission invalid", flush=True)
 
-    return render_template("channel.html", form=form)
+    channels = Channel.query.all()
+    return render_template("channel.html", form=form, channels=channels)
 
 
 @app.route("/login", methods=["GET", "POST"])

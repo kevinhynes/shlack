@@ -6,6 +6,9 @@
 
 {% block scripts %}
     <script src="{{url_for('static', filename='channel.js')}}"></script>
+    <script>
+
+    </script>
 {% endblock %}
 
 {%  block body %}
@@ -24,14 +27,15 @@
         <button class="btn btn-secondary " data-target="#channel-modal" data-toggle="modal" > Add Channel <i class="fa fa-plus"></i></button>
       </li>
 
-      <li data-toggle="collapse" data-target="#service" class="collapsed channel">
-        <a href="#"><i class="fa fa-globe fa-lg"></i> Services <span class="arrow"></span></a>
+{#      <li class="collapsed channel">#}
+{#        <a href="#"><i class="fa fa-globe fa-lg"></i> general <span class="arrow"></span></a>#}
+{#      </li>#}
+      {% for channel in channels %}
+      <li class="channel">
+        <a href={{ url_for('channel', channel=channel.name) }}># {{ channel.name }} <span class="arrow"></span></a>
       </li>
-      <ul class="sub-menu collapse" id="service">
-        <li>New Service 1</li>
-        <li>New Service 2</li>
-        <li>New Service 3</li>
-      </ul>
+      {% endfor %}
+
 
     </ul>
   </div>

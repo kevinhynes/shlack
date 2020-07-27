@@ -82,12 +82,15 @@ body,html {
     line-height: 40px;
     display: block;
     text-align: center;
+    font-size: large;
   }
   .toggle-btn {
     display: none;
   }
   .add-channel {
     border-style: none;
+    border-bottom: 1px solid $darkergray;
+
   }
   .channel {
     list-style: none;
