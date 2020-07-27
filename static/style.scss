@@ -79,7 +79,7 @@ body,html {
   .header {
     background-color: $purple2;
     border-bottom: 1px solid $darkergray;
-    line-height: 40px;
+    line-height: 45px;
     display: block;
     text-align: center;
     font-size: large;
@@ -182,6 +182,8 @@ body,html {
   position: fixed;
   bottom: 0;
   background: $off_white;
+  border: 1px solid $darkergray;
+  border-radius: 5px;
 }
 
 //New channel modal

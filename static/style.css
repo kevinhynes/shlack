@@ -60,7 +60,7 @@ body, html {
 .sidebar .header {
   background-color: #71397c;
   border-bottom: 1px solid #403e41;
-  line-height: 40px;
+  line-height: 45px;
   display: block;
   text-align: center;
   font-size: large;
@@ -117,6 +117,8 @@ body, html {
   position: fixed;
   bottom: 0;
   background: #eeeeee;
+  border: 1px solid #403e41;
+  border-radius: 5px;
 }
 
 .new-channel-container {

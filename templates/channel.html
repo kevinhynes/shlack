@@ -27,20 +27,15 @@
         <button class="btn btn-secondary " data-target="#channel-modal" data-toggle="modal" > Add Channel <i class="fa fa-plus"></i></button>
       </li>
 
-{#      <li class="collapsed channel">#}
-{#        <a href="#"><i class="fa fa-globe fa-lg"></i> general <span class="arrow"></span></a>#}
-{#      </li>#}
       {% for channel in channels %}
       <li class="channel">
-        <a href={{ url_for('channel', channel=channel.name) }}># {{ channel.name }} <span class="arrow"></span></a>
+        <a href={{ url_for('channel', channel_name=channel.name) }}># {{ channel.name }} <span class="arrow"></span></a>
       </li>
       {% endfor %}
-
 
     </ul>
   </div>
 </div>
-
 
 
 <div id="main" class="container-fluid">
@@ -102,9 +97,9 @@
   <div id="message-box" class="row">
     <div class="col-12 message-box py-2">
       <div class="input-group ">
-        <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+        <input type="text" class="form-control" placeholder="Type your message" aria-label="" aria-describedby="">
         <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="button" id="button-addon1">Send</button>
+          <button id="send-button" class="btn btn-outline-secondary" type="button">Send</button>
         </div>
       </div>
     </div>
@@ -148,6 +143,3 @@
 {#<script src="{{url_for('static', filename='chat.js')}}"></script>#}
 
 {%  endblock %}
-
-</body>
-</html>

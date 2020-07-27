@@ -50,27 +50,26 @@ def index():
 @app.route("/channels")
 @login_required
 def channels():
-    return redirect(url_for("channel", channel="general"))
+    return redirect(url_for("channel", channel_name="general"))
 
 
-@app.route("/channels/<string:channel>", methods=["GET", "POST"])
-@login_required  # calls wrapper() with arguments to books().
-def channel(channel):
-    # results = db.execute("SELECT * FROM Channels WHERE Author IN (:channel) ORDER BY Title ASC",
-    #                    {"channel": channel}).fetchall()
-
+@app.route("/channels/<string:channel_name>", methods=["GET", "POST"])
+@login_required
+def channel(channel_name):
     form = NewChannelForm()
     if request.method == "POST":
         if form.validate_on_submit():
             print("NewChannelForm submission validated", flush=True)
             print("Entering into database", flush=True)
-            channel = Channel(name=form.new_channel.data)
+            channel = Channel(name=channel_name)
             db.session.add(channel)
             db.session.commit()
-    else:
-        print("NewChannelForm GET or submission invalid", flush=True)
+        else:
+            print("NewChannelForm GET or submission invalid", flush=True)
 
     channels = Channel.query.all()
+    if not any(channel_name == channel.name for channel in channels):
+        return redirect(url_for("channels"))
     return render_template("channel.html", form=form, channels=channels)
 
 
@@ -104,7 +103,7 @@ def signup():
         db.session.add(user)
         db.session.commit()
         return redirect("/login")
-    monster_files = ["./static/images/monsters/" + filename for filename in os.listdir("static/images/monsters")]
+    monster_files = ["/static/images/monsters/" + filename for filename in os.listdir("static/images/monsters")]
     return render_template("signup.html", title="Sign Up", form=form, monster_files=monster_files)
 
 

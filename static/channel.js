@@ -9,7 +9,7 @@ $(document).ready(function() {
 
     window.onresize = onResizeMessages
     onResizeMessages()
-
+    scrollToBottom()
 
 })
 
@@ -55,6 +55,12 @@ function onResizeMessages() {
         console.log(`larger than 767 - main_height ${main_height}`)
 
     }
+}
+
+
+function scrollToBottom() {
+    const main = document.getElementById("main")
+    main.scrollTop = main.scrollHeight - main.clientHeight
 }
 
 
