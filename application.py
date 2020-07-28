@@ -28,7 +28,7 @@ with app.app_context():
 
 from models import User, Post, Channel
 from forms import LoginForm, SignUpForm, NewChannelForm, NewPostForm
-from datetime import datetime
+from datetime import datetime, timedelta
 
 @app.route("/ensureLogIn")
 def is_user_logged_in():
@@ -66,6 +66,7 @@ def channel(channel_name):
             # db.session.add(channel)
             # db.session.commit()
             new_channel_form.channel_name.data = ""
+            return redirect(url_for("channel", channel_name=channel_name))
         elif new_post_form.submit.data and new_post_form.validate_on_submit():
             print("NewPostForm submission validated", flush=True)
             print("Entering post into database", flush=True)
@@ -73,21 +74,40 @@ def channel(channel_name):
                         timestamp=datetime.utcnow(),
                         user_id=current_user.id,
                         channel_id=Channel.query.filter_by(name=channel_name).first().id)
-            print(f"New post from {current_user.username} recorded to channel_id {Channel.query.filter_by(name=channel_name).first().id}", flush=True)
-            # db.session.add(post)
-            # db.session.commit()
+            print(post, flush=True)
+            db.session.add(post)
+            db.session.commit()
             new_post_form.post_body.data = ""
+            return redirect(url_for("channel", channel_name=channel_name))
         else:
             print("channel/channel_name POST request invalid", flush=True)
 
     channels = Channel.query.all()
     if not any(channel_name == channel.name for channel in channels):
         return redirect(url_for("channels"))
+    cur_channel = Channel.query.filter_by(name=channel_name).first()
+    posts = cur_channel.posts
     return render_template("channel.html",
                            new_channel_form=new_channel_form,
                            new_post_form=new_post_form,
                            channels=channels,
-                           posts=[0, 1, 2, 3, 4, 5])
+                           posts=posts)
+
+
+# def get_posts_with_time_passed(posts):
+#     now = datetime.utcnow()
+#     for post in posts:
+#         delta = now - post.timestamp
+#         if timedelta(seconds=0) <= delta < timedelta(minutes=1):
+#             post.time_passed = "1 min ago"
+#         elif timedelta(minutes=0) <= delta < timedelta(minutes=60):
+#             minutes = delta.totalseconds() // 60
+#             post.time_passed = f"{minutes} minutes ago"
+#         else:
+#             post.time_passed = "Error occurred"
+#         print(post.time_passed, flush=True)
+#     return posts
+
 
 
 @app.route("/login", methods=["GET", "POST"])

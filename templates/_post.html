@@ -1,8 +1,23 @@
-<div class="media chat self">
-  <img src="/static/images/monsters/monster-3.svg" style="height: 100px;"/>
-  <div class="media-body">
-    <p class="timestamp">Zaphod 12:21PM</p>
-    <p>What if the being's lifegiver checks under the lay-slab?</p>
+{% if current_user == post.author %}
+  <div class="media chat self">
+    <img src={{ post.author.avatar }} style="height: 100px;"/>
+    <div class="media-body">
+
+      <h4><span class="badge badge-primary">{{ post.author.username }}</span></h4>
+
+      <p class="timestamp"> {{ post.get_time_passed }} </p>
+
+      <p>{{ post.body }}</p>
+    </div>
   </div>
-</div>
-<hr>
+  <hr>
+{% else %}
+  <div class="media chat">
+    <img src={{ post.author.avatar }} style="height: 100px;"/>
+    <div class="media-body">
+      <p class="timestamp"> <span class="badge badge-secondary">{{ post.author.username }}</span> {{ post.get_time_passed }}</p>
+      <p>{{ post.body }}</p>
+    </div>
+  </div>
+  <hr>
+{% endif %}

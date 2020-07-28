@@ -2,7 +2,7 @@ from application import db, login
 from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
-
+from datetime import datetime, timedelta
 
 # Needed for flask_login to work...
 @login.user_loader
@@ -23,7 +23,6 @@ class User(UserMixin, db.Model):
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
-        print(f"User.set_password {password} {self.password_hash}", flush=True)
 
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
@@ -37,7 +36,29 @@ class Post(db.Model):
     channel_id = db.Column(db.Integer, db.ForeignKey("channel.id"))
 
     def __repr__(self):
-        return f'Post {self.post}'
+        return f'Post {[(str(key), str(val)) for key,val in self.__dict__.items()]}'
+
+    # def __init__(self):
+    #     self.time_passed = ""
+
+    @property
+    def get_time_passed(self):
+        now = datetime.utcnow()
+        delta = now - self.timestamp
+        print(f"Post.time_passed {delta}", flush=True)
+        if timedelta(seconds=0) <= delta < timedelta(minutes=1):
+            return "1 min ago"
+        elif timedelta(minutes=1) <= delta < timedelta(minutes=60):
+            minutes = delta.totalseconds() // 60
+            return f"{minutes} minutes ago"
+        elif timedelta(minutes=60) <= delta < timedelta(hours=24):
+            hours = delta.totalseconds() // 3600
+            return f"{hours} minutes ago"
+        elif timedelta(hours=24) <= delta < timedelta(days=365):
+            days = delta.totalseconds() // 86400
+            return f"{days} minutes ago"
+        else:
+            return "Error occurred"
 
 
 class Channel(db.Model):
@@ -46,5 +67,5 @@ class Channel(db.Model):
     posts = db.relationship("Post", backref="channel", lazy="dynamic")
 
     def __repr__(self):
-        return f"Channel {self.name}"
+        return f"Channel {[(str(key), str(val)) for key,val in self.__dict__.items()]}"
 
