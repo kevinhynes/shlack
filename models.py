@@ -38,25 +38,24 @@ class Post(db.Model):
     def __repr__(self):
         return f'Post {[(str(key), str(val)) for key,val in self.__dict__.items()]}'
 
-    # def __init__(self):
-    #     self.time_passed = ""
-
     @property
     def get_time_passed(self):
         now = datetime.utcnow()
         delta = now - self.timestamp
-        print(f"Post.time_passed {delta}", flush=True)
-        if timedelta(seconds=0) <= delta < timedelta(minutes=1):
+        if timedelta(seconds=0) <= delta < timedelta(minutes=2):
             return "1 min ago"
-        elif timedelta(minutes=1) <= delta < timedelta(minutes=60):
-            minutes = delta.totalseconds() // 60
-            return f"{minutes} minutes ago"
+        elif timedelta(minutes=2) <= delta < timedelta(minutes=60):
+            minutes = int(delta.total_seconds() // 60)
+            return str(minutes) + " mins ago"
+        elif timedelta(hours=1) <= delta < timedelta(hours=2):
+            hours = int(delta.total_seconds() // 3600)
+            return str(hours) + " hour ago"
         elif timedelta(minutes=60) <= delta < timedelta(hours=24):
-            hours = delta.totalseconds() // 3600
-            return f"{hours} minutes ago"
+            hours = int(delta.total_seconds() // 3600)
+            return str(hours) + " hours ago"
         elif timedelta(hours=24) <= delta < timedelta(days=365):
-            days = delta.totalseconds() // 86400
-            return f"{days} minutes ago"
+            days = int(delta.total_seconds() // 86400)
+            return str(days) + " days ago"
         else:
             return "Error occurred"
 

@@ -2,11 +2,7 @@
   <div class="media chat self">
     <img src={{ post.author.avatar }} style="height: 100px;"/>
     <div class="media-body">
-
-      <h4><span class="badge badge-primary">{{ post.author.username }}</span></h4>
-
-      <p class="timestamp"> {{ post.get_time_passed }} </p>
-
+      <p class="timestamp"> <span class="badge badge-primary">{{ post.author.username }}</span> {{ post.get_time_passed }}</p>
       <p>{{ post.body }}</p>
     </div>
   </div>
