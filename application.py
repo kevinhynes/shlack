@@ -69,7 +69,11 @@ def channel(channel_name):
         elif new_post_form.submit.data and new_post_form.validate_on_submit():
             print("NewPostForm submission validated", flush=True)
             print("Entering post into database", flush=True)
-            post = Post(body=new_post_form.post_body.data, timestamp=datetime.utcnow())
+            post = Post(body=new_post_form.post_body.data,
+                        timestamp=datetime.utcnow(),
+                        user_id=current_user.id,
+                        channel_id=Channel.query.filter_by(name=channel_name).first().id)
+            print(f"New post from {current_user.username} recorded to channel_id {Channel.query.filter_by(name=channel_name).first().id}", flush=True)
             # db.session.add(post)
             # db.session.commit()
             new_post_form.post_body.data = ""
@@ -83,7 +87,7 @@ def channel(channel_name):
                            new_channel_form=new_channel_form,
                            new_post_form=new_post_form,
                            channels=channels,
-                           posts=[0,1,2,3,4,5])
+                           posts=[0, 1, 2, 3, 4, 5])
 
 
 @app.route("/login", methods=["GET", "POST"])
