@@ -1,5 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, IntegerField, \
+    DateTimeField
 from wtforms.validators import DataRequired, EqualTo, Email, ValidationError
 
 from models import User, Channel
@@ -22,8 +23,9 @@ class SignUpForm(FlaskForm):
     username = StringField("Username", validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField("Password", validators=[DataRequired()])
-    password_repeat = PasswordField("Repeat Password",
-                validators=[DataRequired(), EqualTo("password", message="Passwords must match")])
+    password_repeat = PasswordField("Repeat Password", validators=[DataRequired(),
+                                                                   EqualTo("password",
+                                                                           message="Passwords must match")])
     submit = SubmitField("Register")
 
     def validate_username(self, username):
@@ -40,7 +42,7 @@ class SignUpForm(FlaskForm):
 
 
 class NewChannelForm(FlaskForm):
-    channel_name = StringField("Channel", validators=[DataRequired()])
+    channel_name = StringField("Channel Name", validators=[DataRequired()])
     submit = SubmitField("Create")
 
     def validate_channel_name(self, channel_name):
@@ -51,3 +53,10 @@ class NewChannelForm(FlaskForm):
             raise ValidationError("Channel name must be between 3 and 24 characters.")
         if not all(char.isalnum() for char in channel_name.data):
             raise ValidationError("Channel name can only contain letters and numbers.")
+
+
+class NewPostForm(FlaskForm):
+    post_body = StringField("Post Body", validators=[DataRequired()])
+    user_id = IntegerField("User ID")
+    datetime = DateTimeField()
+    submit = SubmitField("Send")

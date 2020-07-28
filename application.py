@@ -27,8 +27,8 @@ with app.app_context():
 
 
 from models import User, Post, Channel
-from forms import LoginForm, SignUpForm, NewChannelForm
-
+from forms import LoginForm, SignUpForm, NewChannelForm, NewPostForm
+from datetime import datetime
 
 @app.route("/ensureLogIn")
 def is_user_logged_in():
@@ -57,20 +57,33 @@ def channels():
 @login_required
 def channel(channel_name):
     new_channel_form = NewChannelForm()
+    new_post_form = NewPostForm()
     if request.method == "POST":
-        if new_channel_form.validate_on_submit():
+        if new_channel_form.submit.data and new_channel_form.validate_on_submit():
             print("NewChannelForm submission validated", flush=True)
-            print("Entering into database", flush=True)
-            channel = Channel(name=channel_name)
-            db.session.add(channel)
-            db.session.commit()
+            print("Entering channel_name into database", flush=True)
+            channel = Channel(name=new_channel_form.channel_name.data)
+            # db.session.add(channel)
+            # db.session.commit()
+            new_channel_form.channel_name.data = ""
+        elif new_post_form.submit.data and new_post_form.validate_on_submit():
+            print("NewPostForm submission validated", flush=True)
+            print("Entering post into database", flush=True)
+            post = Post(body=new_post_form.post_body.data, timestamp=datetime.utcnow())
+            # db.session.add(post)
+            # db.session.commit()
+            new_post_form.post_body.data = ""
         else:
-            print("NewChannelForm GET or submission invalid", flush=True)
+            print("channel/channel_name POST request invalid", flush=True)
 
     channels = Channel.query.all()
     if not any(channel_name == channel.name for channel in channels):
         return redirect(url_for("channels"))
-    return render_template("channel.html", new_channel_form=new_channel_form, channels=channels)
+    return render_template("channel.html",
+                           new_channel_form=new_channel_form,
+                           new_post_form=new_post_form,
+                           channels=channels,
+                           posts=[0,1,2,3,4,5])
 
 
 @app.route("/login", methods=["GET", "POST"])

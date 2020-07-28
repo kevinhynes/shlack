@@ -42,114 +42,120 @@
   <div id="main" class="container-fluid">
     <div class="row">
       <div id="messages" class="col-12">
+        {% for post in posts %}
+          {% include "_post.html" %}
+        {% endfor %}
 
         <!--- Start First Row --->
-        <div class="row" style="background: #f6efe8; height: 100%;">
-
-          <div class="col-12 p-5">
-
-            <div class="media chat">
-              <img src="/static/images/monsters/monster-34.svg" style="height: 100px;"/>
-              <div class="media-body">
-                <p class="timestamp">Gerp 12:09PM</p>
-                <p>You must wait until the being is having night visions!</p>
-              </div>
-            </div>
-
-            <hr>
-            <div class="col-12 p-5">
-
-              <div class="media chat self">
-                <img src="/static/images/monsters/monster-3.svg" style="height: 100px;"/>
-                <div class="media-body">
-                  <p class="timestamp">Zaphod 12:21PM</p>
-                  <p>What if the being's lifegiver checks under the lay-slab?</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <hr>
-
-          <div class="col-12 p-5">
-
-            <div class="media chat">
-              <img src="/static/images/monsters/monster-34.svg" style="height: 100px;"/>
-              <div class="media-body">
-                <p class="timestamp">Gerp 12:09PM</p>
-                <p>You must wait until the being is having night visions!</p>
-              </div>
-            </div>
-
-            <hr>
-            <div class="col-12 p-5">
-
-              <div class="media chat self">
-                <img src="/static/images/monsters/monster-3.svg" style="height: 100px;"/>
-                <div class="media-body">
-                  <p class="timestamp">Zaphod 12:21PM</p>
-                  <p>What if the being's lifegiver checks under the lay-slab?</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 p-5">
-
-            <div class="media chat">
-              <img src="/static/images/monsters/monster-34.svg" style="height: 100px;"/>
-              <div class="media-body">
-                <p class="timestamp">Gerp 12:09PM</p>
-                <p>You must wait until the being is having night visions!</p>
-              </div>
-            </div>
-
-            <hr>
-            <div class="col-12 p-5">
-
-              <div class="media chat self">
-                <img src="/static/images/monsters/monster-3.svg" style="height: 100px;"/>
-                <div class="media-body">
-                  <p class="timestamp">Zaphod 12:21PM</p>
-                  <p>What if the being's lifegiver checks under the lay-slab?</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 p-5">
-
-            <div class="media chat">
-              <img src="/static/images/monsters/monster-34.svg" style="height: 100px;"/>
-              <div class="media-body">
-                <p class="timestamp">Gerp 12:09PM</p>
-                <p>You must wait until the being is having night visions!</p>
-              </div>
-            </div>
-
-            <hr>
-            <div class="col-12 p-5">
-
-              <div class="media chat self">
-                <img src="/static/images/monsters/monster-3.svg" style="height: 100px;"/>
-                <div class="media-body">
-                  <p class="timestamp">Zaphod 12:21PM</p>
-                  <p>What if the being's lifegiver checks under the lay-slab?</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-        </div>
-        <!--- End First Row --->
+{#        <div class="row" style="background: #f6efe8; height: 100%;">#}
+{##}
+{#          <div class="col-12 p-5">#}
+{##}
+{#            <div class="media chat">#}
+{#              <img src="/static/images/monsters/monster-34.svg" style="height: 100px;"/>#}
+{#              <div class="media-body">#}
+{#                <p class="timestamp">Gerp 12:09PM</p>#}
+{#                <p>You must wait until the being is having night visions!</p>#}
+{#              </div>#}
+{#            </div>#}
+{##}
+{#            <hr>#}
+{#            <div class="col-12 p-5">#}
+{##}
+{#              <div class="media chat self">#}
+{#                <img src="/static/images/monsters/monster-3.svg" style="height: 100px;"/>#}
+{#                <div class="media-body">#}
+{#                  <p class="timestamp">Zaphod 12:21PM</p>#}
+{#                  <p>What if the being's lifegiver checks under the lay-slab?</p>#}
+{#                </div>#}
+{#              </div>#}
+{#            </div>#}
+{#          </div>#}
+{#          <hr>#}
+{##}
+{#          <div class="col-12 p-5">#}
+{##}
+{#            <div class="media chat">#}
+{#              <img src="/static/images/monsters/monster-34.svg" style="height: 100px;"/>#}
+{#              <div class="media-body">#}
+{#                <p class="timestamp">Gerp 12:09PM</p>#}
+{#                <p>You must wait until the being is having night visions!</p>#}
+{#              </div>#}
+{#            </div>#}
+{##}
+{#            <hr>#}
+{#            <div class="col-12 p-5">#}
+{##}
+{#              <div class="media chat self">#}
+{#                <img src="/static/images/monsters/monster-3.svg" style="height: 100px;"/>#}
+{#                <div class="media-body">#}
+{#                  <p class="timestamp">Zaphod 12:21PM</p>#}
+{#                  <p>What if the being's lifegiver checks under the lay-slab?</p>#}
+{#                </div>#}
+{#              </div>#}
+{#            </div>#}
+{#          </div>#}
+{#          <div class="col-12 p-5">#}
+{##}
+{#            <div class="media chat">#}
+{#              <img src="/static/images/monsters/monster-34.svg" style="height: 100px;"/>#}
+{#              <div class="media-body">#}
+{#                <p class="timestamp">Gerp 12:09PM</p>#}
+{#                <p>You must wait until the being is having night visions!</p>#}
+{#              </div>#}
+{#            </div>#}
+{##}
+{#            <hr>#}
+{#            <div class="col-12 p-5">#}
+{##}
+{#              <div class="media chat self">#}
+{#                <img src="/static/images/monsters/monster-3.svg" style="height: 100px;"/>#}
+{#                <div class="media-body">#}
+{#                  <p class="timestamp">Zaphod 12:21PM</p>#}
+{#                  <p>What if the being's lifegiver checks under the lay-slab?</p>#}
+{#                </div>#}
+{#              </div>#}
+{#            </div>#}
+{#          </div>#}
+{#          <div class="col-12 p-5">#}
+{##}
+{#            <div class="media chat">#}
+{#              <img src="/static/images/monsters/monster-34.svg" style="height: 100px;"/>#}
+{#              <div class="media-body">#}
+{#                <p class="timestamp">Gerp 12:09PM</p>#}
+{#                <p>You must wait until the being is having night visions!</p>#}
+{#              </div>#}
+{#            </div>#}
+{##}
+{#            <hr>#}
+{#            <div class="col-12 p-5">#}
+{##}
+{#              <div class="media chat self">#}
+{#                <img src="/static/images/monsters/monster-3.svg" style="height: 100px;"/>#}
+{#                <div class="media-body">#}
+{#                  <p class="timestamp">Zaphod 12:21PM</p>#}
+{#                  <p>What if the being's lifegiver checks under the lay-slab?</p>#}
+{#                </div>#}
+{#              </div>#}
+{#            </div>#}
+{#          </div>#}
+{##}
+{##}
+{#        </div>#}
+{#        <!--- End First Row --->#}
       </div>
     </div>
 
-    <form>
+    <form action="" method="POST" novalidate>
+      {{ new_post_form.hidden_tag() }}
       <div id="message-box" class="row">
         <div class="col-12 message-box py-2">
           <div class="input-group ">
-            <input class="form-control" type="text" placeholder="Type your message" aria-label="" aria-describedby="">
+            {{ new_post_form.post_body(class_="form-control", placeholder="Type your message") }}
+{#            <input class="form-control" type="text" placeholder="Type your message" aria-label="" aria-describedby="">#}
             <div class="input-group-append">
-              <button id="send-button" class="btn btn-outline-secondary" type="button">Send</button>
+              {{ new_post_form.submit(class_="btn btn-outline-secondary") }}
+{#              <button id="send-button" class="btn btn-outline-secondary" type="button">Send</button>#}
             </div>
           </div>
         </div>
@@ -170,7 +176,7 @@
           </button>
         </div>
         <div class="modal-body new-channel-container">
-          <form action="" method="post" novalidate>
+          <form action="" method="POST" novalidate>
             {{ new_channel_form.hidden_tag() }}
             <p>
               {% if new_channel_form.channel_name.errors %}
