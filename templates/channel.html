@@ -39,6 +39,7 @@
   <div id="main" class="container-fluid">
     <div class="row">
       <div id="messages" class="col-12">
+        <hr>
         {% for post in posts %}
           {% include "_post.html" %}
         {% endfor %}
@@ -53,7 +54,7 @@
             {{ new_post_form.post_body(class_="form-control", placeholder="Type your message") }}
             {#            <input class="form-control" type="text" placeholder="Type your message" aria-label="" aria-describedby="">#}
             <div class="input-group-append">
-              {{ new_post_form.submit(class_="btn btn-outline-secondary") }}
+              {{ new_post_form.submit(id="msg-send-btn", class_="btn btn-outline-secondary") }}
               {#              <button id="send-button" class="btn btn-outline-secondary" type="button">Send</button>#}
             </div>
           </div>

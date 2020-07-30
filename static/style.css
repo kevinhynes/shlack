@@ -135,6 +135,7 @@ body, html {
 .media .timestamp {
   font-weight: bold;
   margin: 0;
+  font-size: 12px;
 }
 .media img {
   height: 100px;
@@ -149,7 +150,7 @@ body, html {
 .media-body {
   background: #eeeeee;
   border: 1.5px inset #403e41;
-  border-radius: 15px 30px 15px 5px;
+  border-radius: 15px 15px 15px 5px;
   padding: 0px 20px;
   margin-bottom: 5px;
 }
@@ -169,7 +170,7 @@ body, html {
 }
 
 .media.self .media-body {
-  border-radius: 30px 15px 5px 15px;
+  border-radius: 15px 15px 5px 15px;
 }
 
 /*Fake Sidebar*/

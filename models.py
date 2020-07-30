@@ -53,7 +53,10 @@ class Post(db.Model):
         elif timedelta(minutes=60) <= delta < timedelta(hours=24):
             hours = int(delta.total_seconds() // 3600)
             return str(hours) + " hours ago"
-        elif timedelta(hours=24) <= delta < timedelta(days=365):
+        elif timedelta(hours=24) <= delta < timedelta(days=2):
+            days = int(delta.total_seconds() // 86400)
+            return str(days) + " day ago"
+        elif timedelta(hours=2) <= delta < timedelta(days=365):
             days = int(delta.total_seconds() // 86400)
             return str(days) + " days ago"
         else:
