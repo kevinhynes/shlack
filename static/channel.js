@@ -16,42 +16,34 @@ $(document).ready(function() {
 
     // When connected, configure buttons
     socket.on('connect', () => {
-
-        // Each button should emit a "submit vote" event
         const msg_send_btn = document.getElementById("msg-send-btn")
+        const post = document.getElementById("msg-input")
         msg_send_btn.onclick = () => {
-            const selection = button.dataset.vote;
-            socket.emit('submit vote', {'selection': selection});
-        };
-    });
+            socket.emit("message sent", {"body": post.value})
+        }
+        console.log(post)
+        console.log(post.value)
+    })
 
     // When a new vote is announced, add to the unordered list
-    socket.on("message received", data => {
+    socket.on("message received", post => {
         const li = document.createElement('li');
-        li.innerHTML = `Vote recorded: ${data.selection}`;
-        document.querySelector('#votes').append(li);
+        li.innerHTML = `Vote recorded: ${post.body}`;
+        document.getElementById("messages").append(li);
     });
 
 })
 
 
-function ensureLogIn() {
-    const xhr = new XMLHttpRequest()
-    xhr.responseType = 'json'
-    xhr.onreadystatechange = () => {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            console.log(xhr.response)
-            if (!xhr.response['logged_in']) {
-                $('#signInModal').modal('show')
-                console.log('opening modal')
-            } else {
-                console.log('not opening modal')
-            }
-        }
-    }
-    xhr.open('GET', '/ensureLogIn')
-    xhr.send()
-}
+// function configSendMessage() {
+//     const msg_send_btn = document.getElementById("msg-send-btn")
+//     const post = document.getElementById("msg-input")
+//     msg_send_btn.onclick = () => {
+//         socket.emit("message sent", {"body": post.data})
+//     }
+//     console.log("configSendMessage")
+// }
+
 
 
 function resizeMessages() {
@@ -82,6 +74,25 @@ function resizeMessages() {
 function scrollToBottom() {
     const main = document.getElementById("main")
     main.scrollTop = main.scrollHeight - main.clientHeight
+}
+
+
+function ensureLogIn() {
+    const xhr = new XMLHttpRequest()
+    xhr.responseType = 'json'
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            console.log(xhr.response)
+            if (!xhr.response['logged_in']) {
+                $('#signInModal').modal('show')
+                console.log('opening modal')
+            } else {
+                console.log('not opening modal')
+            }
+        }
+    }
+    xhr.open('GET', '/ensureLogIn')
+    xhr.send()
 }
 
 

@@ -6,6 +6,7 @@
 
 {% block scripts %}
   <script src="{{ url_for('static', filename='channel.js') }}"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
 {% endblock %}
 
 {% block body %}
@@ -46,16 +47,16 @@
       </div>
     </div>
 
-    <form action="" method="POST" novalidate>
-      {{ new_post_form.hidden_tag() }}
+    <form action="" method="POST">
+{#      {{ new_post_form.hidden_tag() }}#}
       <div id="message-box" class="row">
-        <div class="col-12 message-box py-2">
+        <div class="col-12 py-2">
           <div class="input-group ">
-            {{ new_post_form.post_body(class_="form-control", placeholder="Type your message") }}
-            {#            <input class="form-control" type="text" placeholder="Type your message" aria-label="" aria-describedby="">#}
+{#            {{ new_post_form.post_body(id="msg-input", class_="form-control", placeholder="Type your message") }}#}
+            <input id="msg-input" class="form-control" type="text" placeholder="Type your message" aria-label="" aria-describedby="">
             <div class="input-group-append">
-              {{ new_post_form.submit(id="msg-send-btn", class_="btn btn-outline-secondary") }}
-              {#              <button id="send-button" class="btn btn-outline-secondary" type="button">Send</button>#}
+{#              {{ new_post_form.submit(id="msg-send-btn", class_="btn btn-outline-secondary") }}#}
+              <button id="msg-send-btn" class="btn btn-outline-secondary" type="button">Send</button>
             </div>
           </div>
         </div>

@@ -60,27 +60,20 @@ def channel(channel_name):
     new_post_form = NewPostForm()
     if request.method == "POST":
         if new_channel_form.submit.data and new_channel_form.validate_on_submit():
-            print("NewChannelForm submission validated", flush=True)
-            print("Entering channel_name into database", flush=True)
             channel = Channel(name=new_channel_form.channel_name.data)
-            # db.session.add(channel)
-            # db.session.commit()
+            db.session.add(channel)
+            db.session.commit()
             new_channel_form.channel_name.data = ""
             return redirect(url_for("channel", channel_name=channel_name))
         elif new_post_form.submit.data and new_post_form.validate_on_submit():
-            print("NewPostForm submission validated", flush=True)
-            print("Entering post into database", flush=True)
             post = Post(body=new_post_form.post_body.data,
                         timestamp=datetime.utcnow(),
                         user_id=current_user.id,
                         channel_id=Channel.query.filter_by(name=channel_name).first().id)
-            print(post, flush=True)
             db.session.add(post)
             db.session.commit()
             new_post_form.post_body.data = ""
             return redirect(url_for("channel", channel_name=channel_name))
-        else:
-            print("channel/channel_name POST request invalid", flush=True)
 
     channels = Channel.query.all()
     if not any(channel_name == channel.name for channel in channels):
@@ -92,6 +85,16 @@ def channel(channel_name):
                            new_post_form=new_post_form,
                            channels=channels,
                            posts=posts)
+
+
+@socketio.on("message sent")
+def message_emitter(post):
+    print("@socketio.on(message sent)", flush=True)
+    print(post, flush=True)
+
+    body = post["body"]
+    emit("message received", {"body": body}, broadcast=True)
+
 
 
 # def get_posts_with_time_passed(posts):
